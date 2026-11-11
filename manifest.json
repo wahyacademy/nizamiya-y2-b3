@@ -1,0 +1,15 @@
+{
+  "name": "روابط الدراسة النظامية — السنة الثانية | أكاديمية وحي",
+  "short_name": "روابط وحي س2",
+  "start_url": "./#week",
+  "scope": "./",
+  "display": "standalone",
+  "dir": "rtl",
+  "lang": "ar",
+  "background_color": "#ffffff",
+  "theme_color": "#003262",
+  "icons": [
+    { "src": "/nizamiya-y1-b4/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/nizamiya-y1-b4/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
