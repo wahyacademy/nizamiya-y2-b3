@@ -1,0 +1,1296 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#003262">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="/nizamiya-y1-b4/icon-192.png">
+<meta name="apple-mobile-web-app-title" content="روابط وحي">
+<title>روابط السنة الثانية | أكاديمية وحي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@700&display=swap">
+<style>
+:root{
+  /* هوية أكاديمية وحي */
+  --bg:#f3f6fa; --surface:#ffffff; --ink:#14263d; --muted:#56677c; --line:#dce4ee;
+  --brand:#0f588c; --brand-deep:#003262; --brand-soft:#e5eef7;
+  --gold:#fbb431; --gold-ink:#7a5200; --gold-soft:#fff3d9; --off:#9aa8b8;
+  --display:"Amiri","IBM Plex Sans Arabic",serif;
+  --body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.7}
+[hidden]{display:none!important}
+
+/* الرأس */
+.top{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,var(--brand-deep),var(--brand));border-bottom:4px solid var(--gold)}
+.top::before{content:"";position:absolute;inset:0;opacity:.09;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.2'%3E%3Crect x='16' y='16' width='24' height='24'/%3E%3Crect x='16' y='16' width='24' height='24' transform='rotate(45 28 28)'/%3E%3C/g%3E%3C/svg%3E")}
+.top-in{position:relative;max-width:780px;margin:0 auto;padding:22px 16px 20px;display:flex;align-items:center;gap:16px}
+.logo{height:64px;width:auto;flex:none}
+.top-txt{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.eyebrow{color:var(--gold);font-weight:600;font-size:13px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(23px,5vw,31px);line-height:1.35;margin:0;text-wrap:balance}
+.who{position:relative;max-width:780px;margin:0 auto;padding:0 16px 14px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-size:13px;color:#dbe7f3}
+.who b{direction:ltr;unicode-bidi:embed;font-weight:600;color:#fff}
+.who button{font:inherit;font-size:12.5px;font-weight:600;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 12px;cursor:pointer}
+
+.wrap{max-width:780px;margin:0 auto;padding:22px 16px 48px;display:flex;flex-direction:column;gap:20px}
+h2{font-family:var(--display);font-weight:700;font-size:23px;margin:0;color:var(--brand-deep)}
+.card{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:12px;box-shadow:0 1px 3px rgba(20,38,61,.06)}
+.pickers{display:flex;flex-direction:column;gap:10px}
+.pickers{display:contents}
+.trackbar{position:sticky;top:0;z-index:20;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:10px 12px;margin:0 -16px;background:rgba(243,246,250,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.trackbar::-webkit-scrollbar{display:none}
+.trackbar .chip{flex:none;white-space:nowrap}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.row-label{font-size:12.5px;color:var(--muted);min-width:52px;font-weight:600}
+.chip,.tab{font:inherit;font-weight:600;cursor:pointer;color:var(--ink)}
+.chip{border:1px solid var(--line);background:var(--surface);padding:5px 15px;border-radius:999px}
+.chip:hover{border-color:var(--brand)}
+.chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+.search{width:100%;font:inherit;padding:9px 14px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink)}
+.search:focus{outline:2px solid var(--brand);outline-offset:1px}
+button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.stack{display:flex;flex-direction:column;gap:14px}
+.term{display:flex;flex-direction:column;gap:14px}
+.term h2{display:flex;align-items:center;gap:10px}
+.cur{font-family:var(--body);font-size:12px;font-weight:700;background:var(--gold);color:var(--brand-deep);padding:1px 11px;border-radius:999px}
+details.old{border-top:2px solid var(--line);padding-top:14px}
+details.old summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+details.old summary::-webkit-details-marker{display:none}
+details.old summary::before{content:"◂";color:var(--brand);transition:transform .15s}
+details.old[open] summary::before{transform:rotate(-90deg)}
+details.old summary .hint{color:var(--muted);font-size:13px}
+details.old[open] > .stack{margin-top:14px}
+.sched{padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+.sc-grid{display:flex;flex-direction:column;gap:5px;margin:0}
+.sc-row{display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline;min-width:0;font-size:14px}
+.sc-row dt{font-size:12.5px;color:var(--muted);font-weight:600;min-width:86px}
+.sc-row dd{margin:0;font-weight:600}
+.sc-courses{list-style:none;margin:0;padding:10px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.sc-courses li{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 12px;font-size:14px}
+.sc-courses span{color:var(--muted);font-size:13px}
+.finalsbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--gold-soft);color:var(--gold-ink);border:1px solid var(--gold);border-right:5px solid var(--gold);border-radius:10px;padding:10px 14px;font-size:15px;font-weight:600;line-height:1.6}.finalsbar[hidden]{display:none}.finalsbar b{font-weight:700}.fb-i{font-size:20px}.fb-t{flex:1;min-width:200px}.fb-c{background:#003262;color:#fff;border-radius:999px;padding:3px 12px;font-size:14px;white-space:nowrap}
+.finals{margin:0;background:var(--gold-soft);color:var(--gold-ink);font-weight:600;border-radius:8px;padding:8px 12px;font-size:14px;border-right:4px solid var(--gold)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px}
+.tab{border:1px solid var(--line);background:var(--surface);padding:6px 16px;border-radius:999px}
+.tab[aria-selected="true"]{background:var(--brand-deep);border-color:var(--brand-deep);color:#fff}
+.meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--muted);font-size:13px}
+ol.lectures{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.lec{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:13px 15px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px}
+.num{grid-row:span 2;width:38px;height:38px;border-radius:50%;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;font-weight:700;font-size:16px}
+.lec-title{min-width:0}
+.lec-title small{display:block;color:var(--muted);font-size:12.5px}
+.lec-title strong{font-weight:600;font-size:15.5px}
+.new{display:inline-block;margin-inline-start:6px;background:var(--gold);color:var(--brand-deep);font-size:11px;font-weight:700;padding:0 8px;border-radius:999px;vertical-align:middle}
+.actions{grid-column:2;display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:500;text-decoration:none;padding:5px 12px;border-radius:7px;border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+.btn.main{background:var(--brand);border-color:var(--brand);color:#fff}
+.btn:hover{border-color:var(--brand)}
+.btn.main:hover{background:var(--brand-deep)}
+.btn.off{color:var(--off);border-style:dashed;background:transparent}
+.btn svg{width:15px;height:15px;flex:none}
+.tasks{grid-column:2;list-style:none;margin:6px 0 0;padding:10px 12px;border-radius:8px;background:var(--gold-soft);display:flex;flex-direction:column;gap:6px}
+.tasks li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:13.5px;min-width:0}
+.t-text{display:inline-flex;gap:6px;align-items:baseline;min-width:0;overflow-wrap:anywhere}
+.t-text svg{width:14px;height:14px;flex:none;color:var(--gold-ink);align-self:center}
+.t-link{color:var(--brand);font-weight:600;font-size:13px}
+.ref-grid{display:flex;flex-wrap:wrap;gap:8px}
+.ref{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:600;font-size:13px}
+.ref:hover{border-color:var(--brand)}
+.ref svg{color:var(--brand);width:15px;height:15px;flex:none}
+.msg{background:var(--surface);border:1px dashed var(--line);border-radius:10px;padding:26px 18px;text-align:center;color:var(--muted)}
+.msg a{color:var(--brand);font-weight:600}
+
+/* بوابة الدخول */
+.gate{padding:26px 20px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.gate h2{font-size:24px}
+.gate p{margin:0;color:var(--muted);max-width:460px}
+.gate ol{margin:0;padding:12px 30px 12px 16px;text-align:right;background:var(--bg);border-radius:10px;font-size:14px;color:var(--ink);max-width:460px}
+#g-btn{min-height:44px;display:flex;justify-content:center;width:100%;max-width:320px}
+.mmsg{font-size:14px;min-height:1px;max-width:460px}
+.mmsg.bad{color:#a2291a}
+.mmsg.good{color:#1f7f74;font-weight:600}
+.mmsg a{color:var(--brand);font-weight:600}
+.gate small{color:var(--muted);font-size:12.5px}
+.gate small button{font:inherit;color:var(--brand);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+
+/* إضافات: العدّاد، المطلوب هذا الأسبوع، شاهدتها، النوافذ */
+.next{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;background:var(--brand-soft);border-radius:10px;padding:10px 14px;font-weight:600;color:var(--brand-deep)}
+.next .cd{font-variant-numeric:tabular-nums;color:var(--brand)}
+.next.live{background:#fde8e6;color:#a2291a}
+.next.live .cd{color:#a2291a}
+.dot{width:9px;height:9px;border-radius:50%;background:#d93025;display:inline-block;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.25}}
+.links-row{display:flex;flex-wrap:wrap;gap:8px}
+.week{padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.week h3{margin:0;font-family:var(--display);font-size:21px;line-height:1.4;color:var(--brand-deep)}
+#w-due li.due,#w-due,#w-term{scroll-margin-top:70px}
+.flash{outline:3px solid var(--gold);outline-offset:2px;transition:outline-color .6s}
+.hello{margin:0 0 8px;font-weight:600;color:var(--brand-deep);font-size:15px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tile{font:inherit;display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--surface);border:1px solid var(--line);border-bottom:3px solid var(--gold);border-radius:12px;padding:10px 4px;cursor:pointer;color:var(--ink);min-height:84px}
+.tile i{font-style:normal;font-size:24px;line-height:1.2}
+.tile b{font-size:13.5px;color:var(--brand-deep)}
+.tile span{font-size:15px;font-weight:700;color:var(--brand)}
+.tile.zero span{color:#1f7f74}
+.tpts{margin:4px 0 0;padding:0 18px 0 0;display:flex;flex-direction:column;gap:6px;line-height:1.7}
+.t-text .tpts{margin-top:6px}
+.helpfab{position:fixed;left:14px;bottom:16px;z-index:30;display:flex;align-items:center;gap:6px;background:var(--brand-deep);color:#fff;border:2px solid var(--gold);border-radius:999px;padding:8px 14px;font-weight:600;font-size:13.5px;text-decoration:none;box-shadow:0 4px 14px rgba(20,38,61,.25)}
+.tour ol{margin:0;padding:0 20px 0 0;display:flex;flex-direction:column;gap:12px;line-height:1.7}
+.tour b{color:var(--brand-deep)}
+.tour .tbtns{display:flex;gap:8px;justify-content:flex-start;margin-top:14px}
+@media (max-width:599px){ .helpfab{bottom:84px;padding:7px 12px;font-size:13px} .tiles{gap:6px} .tile b{font-size:12.5px} }
+.week ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.week li{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:14px}
+.pill{font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px;background:var(--bg);color:var(--muted)}
+.pill.open{background:#e1f3f1;color:#1f7f74}
+.pill.warn{background:var(--gold-soft);color:var(--gold-ink)}
+.lec.seen{background:#fbfdff}
+.lec.seen .num{background:#e1f3f1;color:#1f7f74}
+.btn.seen-btn{background:transparent}
+.btn.seen-btn[aria-pressed="true"]{border-color:#1f7f74;color:#1f7f74;background:#e1f3f1}
+.btn.rate{border-color:var(--gold);background:var(--gold-soft);color:var(--gold-ink);font-weight:600;cursor:pointer;font-family:inherit}
+.btn.rate.done{background:transparent;border-color:var(--line);color:var(--muted)}
+button.btn{cursor:pointer;font-family:inherit}
+.modal{position:fixed;inset:0;background:rgba(10,22,40,.6);z-index:50;display:flex;align-items:center;justify-content:center;padding:14px}
+.mbox{background:var(--surface);border-radius:14px;width:min(860px,100%);max-height:92vh;overflow:auto;border-top:4px solid var(--gold)}
+.mhead{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface);z-index:1}
+.mhead b{flex:1;font-size:15px}
+.mx{font:inherit;font-size:20px;line-height:1;border:0;background:var(--bg);border-radius:8px;width:34px;height:34px;cursor:pointer;color:var(--ink)}
+.vwrap{position:relative;padding-top:56.25%;background:#000}
+.vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vnote{padding:8px 16px;background:var(--gold-soft);color:var(--gold-ink);font-size:13.5px;font-weight:600;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.vnote button{font:inherit;font-size:13px;background:none;border:1px solid currentColor;color:inherit;border-radius:999px;padding:2px 12px;cursor:pointer}
+.resume .rp{font-style:normal;white-space:nowrap;flex:none}
+.btn .at{white-space:nowrap;font-size:12px;font-weight:600;opacity:.85;margin-inline-start:4px}
+.grades table{width:100%;border-collapse:collapse;font-size:14px}
+.grades td,.grades th{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right}
+.grades th{color:var(--muted);font-size:12.5px;font-weight:600}
+.grades .sc{font-weight:700;color:var(--brand-deep);white-space:nowrap}
+.tgrem{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--surface);border:1px dashed var(--brand);border-radius:10px;padding:10px 14px;font-size:14px}
+.tgrem.on{border-style:solid;border-color:#bfe3de;color:#1f7f74;font-weight:600}
+.ns-act{display:flex;flex-wrap:wrap;gap:8px}
+.btn.att{border-color:var(--brand);color:var(--brand);font-weight:700}
+.btn.att.on{background:#e1f3f1;border-color:#1f7f74;color:#1f7f74}
+.recs .ns-act{flex:none}
+.nextstep .btn.ghost{background:transparent;border-color:rgba(255,255,255,.55);color:#fff;font-weight:600}
+.task-b{padding:14px 16px 18px;display:flex;flex-direction:column;gap:12px}
+.task-b .ti{border:1px solid var(--line);border-right:4px solid var(--gold);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.task-b .ti p{margin:0;line-height:1.7;white-space:pre-line}
+.task-b .ta{display:flex;flex-wrap:wrap;gap:8px}
+.task-b .tfoot{font-size:13px;color:var(--muted)}
+.icsbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:14px}
+.vfoot{padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+#rate-f{padding:14px 16px 18px;display:flex;flex-direction:column;gap:14px}
+#rate-f fieldset{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0}
+#rate-f legend{font-weight:600;font-size:14px;padding:0 4px}
+#rate-f .rmiss{border-color:#d93025;background:#fff6f5}
+.rpills,.rchips{display:flex;flex-wrap:wrap;gap:6px}
+.rpills label,.rchips label{cursor:pointer}
+.rpills input,.rchips input{position:absolute;opacity:0;pointer-events:none}
+.rpills span,.rchips span{display:inline-block;border:1px solid var(--line);border-radius:8px;padding:4px 11px;font-size:14px;min-width:34px;text-align:center}
+.rpills input:checked+span,.rchips input:checked+span{background:var(--brand);border-color:var(--brand);color:#fff}
+.rpills input:focus-visible+span,.rchips input:focus-visible+span{outline:2px solid var(--gold)}
+.rends{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:4px}
+.rtxt{display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:14px}
+.rtxt.rmiss textarea{border-color:#d93025}
+.rtxt textarea{font:inherit;font-weight:400;border:1px solid var(--line);border-radius:8px;padding:8px 10px;resize:vertical}
+.rsec{margin:4px 0 0;color:var(--brand-deep);font-size:15px}
+.rnote{margin:0;color:var(--muted);font-size:13px}
+.rsend{align-self:flex-start;background:var(--brand);color:#fff;border:0;border-radius:9px;padding:9px 22px;font:inherit;font-weight:700;cursor:pointer}
+.rsend:disabled{opacity:.6}
+
+.btn:not(.main){font-size:12.5px;padding:4px 10px}
+.btn.seen-btn{padding:4px 9px}
+.actions .btn.main{flex:1 1 100%;justify-content:center;padding:8px 12px;font-size:14px}
+@media (min-width:600px){ .actions .btn.main{flex:0 0 auto;padding:5px 14px;font-size:13.5px} }
+.prog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
+.prog .bar{flex:1;height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.prog .bar i{display:block;height:100%;background:#1f7f74;border-radius:99px}
+details.more summary{cursor:pointer;list-style:none;text-align:center;font-weight:600;color:var(--brand);padding:9px;border:1px dashed var(--line);border-radius:10px;background:var(--surface);font-size:14px}
+details.more summary::-webkit-details-marker{display:none}
+details.more[open] summary{margin-bottom:10px}
+@media (max-width:599px){
+  .top-in{padding:14px 14px 12px;gap:12px}
+  .logo{height:46px}
+  h1{font-size:21px}
+  .wrap{padding:0 14px 40px;gap:14px}
+  .trackbar{margin:0 -14px;padding:8px 14px}
+  .lec{padding:11px 12px;gap:4px 10px}
+  .num{width:32px;height:32px;font-size:14px}
+  .actions{grid-column:1 / -1}
+  .tasks{grid-column:1 / -1}
+  .sched,.week{padding:12px 13px}
+  h2{font-size:21px}
+}
+
+.chip.wk{border-color:var(--gold);background:var(--gold-soft);color:var(--gold-ink)}
+.chip.wk[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--brand-deep)}
+.ann{background:var(--gold-soft);border:1px solid #f0d9a6;border-right:4px solid var(--gold);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column;gap:6px}
+.ann p{margin:0;font-weight:600;color:var(--gold-ink);font-size:14px}
+.resume{font:inherit;font-weight:600;text-align:right;display:flex;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--brand);color:var(--brand);border-radius:10px;padding:10px 14px;cursor:pointer}
+.resume span{color:var(--ink);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.week .wt{flex:1;min-width:0}
+.agenda{display:flex;flex-direction:column;gap:8px}
+.day{border-right:3px solid var(--line);padding:2px 10px 2px 0}
+.day.today{border-color:var(--gold)}
+.day b{font-size:14px;color:var(--brand-deep)}
+.day ul{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column;gap:2px;font-size:13.5px}
+.day li.past{color:var(--off);text-decoration:line-through}
+.tt{width:100%;border-collapse:collapse;font-size:13.5px}
+.tt th{text-align:right;color:var(--muted);font-size:12px;font-weight:600;padding:4px 6px;border-bottom:1px solid var(--line)}
+.tt td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.tt td small{display:block;color:var(--muted);font-size:12px}
+.lnk{font:inherit;font-weight:700;color:var(--brand);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+
+.chip i{font-style:normal;margin-inline-end:5px}
+.chip .ls{display:none}
+.btn,.chip,.tab{min-height:40px}
+.tab{display:inline-flex;align-items:center;gap:6px}
+.tab .dotn{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block}
+.tab .ok{color:#1f7f74;font-weight:700}
+.tab[aria-selected="true"] .ok{color:#9be3d6}
+.nextstep{background:linear-gradient(135deg,var(--brand-deep),var(--brand));color:#fff;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;border-bottom:4px solid var(--gold)}
+.ns-row.urgent{background:rgba(214,48,49,.32);border-color:#ff8f8f}.ns-row.urgent .ns-n{background:#ff6b6b;color:#fff}.ns-warn{background:#ff6b6b;color:#fff;border-radius:999px;padding:1px 9px;font-weight:700}
+.chip.rv{border-color:var(--brand);background:#e8f0f8;color:var(--brand-deep)}
+.rv-head{background:linear-gradient(135deg,var(--brand-deep),var(--brand));color:#fff;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;border-bottom:4px solid var(--gold)}.rv-head small{color:var(--gold);font-weight:700}.rv-head b{font-size:17px;line-height:1.5}.rv-head .sub{color:#dbe7f3;font-size:13px}
+.rv-tot{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.rv-tot b{font-size:15px}
+.rv-bar{flex:1;min-width:80px;height:8px;border-radius:99px;background:rgba(0,50,98,.12);overflow:hidden;display:block}.rv-bar i{display:block;height:100%;background:var(--gold);border-radius:99px}.rv-head .rv-bar{background:rgba(255,255,255,.2)}.rv-bar.big{height:10px}
+.rv-s{border:1px solid var(--line);border-radius:10px;margin-top:10px;background:var(--surface)}.rv-s>summary{cursor:pointer;padding:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;list-style:none}.rv-s>summary::-webkit-details-marker{display:none}.rv-s>summary b{font-size:16px}.rv-c{font-size:13px;color:var(--muted)}.rv-c.full{color:#1e7a46;font-weight:700}
+.rv-files{display:flex;flex-wrap:wrap;gap:8px;padding:0 12px 10px}
+.rv-list{list-style:none;margin:0;padding:0 12px 12px;display:flex;flex-direction:column;gap:8px}.rv-l{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:8px}.rv-l .num{width:26px;height:26px;border-radius:50%;background:var(--gold-soft);color:var(--gold-ink);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex:none}.rv-l.on .num{background:#1e7a46;color:#fff}
+.rv-t{flex:1;min-width:160px;display:flex;flex-direction:column}.rv-t small{color:var(--muted)}.rv-a{display:flex;flex-wrap:wrap;gap:6px}.rv-b.on{background:#e6f4ec;border-color:#1e7a46;color:#1e7a46;font-weight:700}
+.ns-list{display:flex;flex-direction:column;gap:8px}.ns-row{position:relative;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:10px 44px 10px 12px;display:flex;flex-direction:column;gap:6px}.ns-row b{font-size:15.5px}.ns-n{position:absolute;right:10px;top:10px;width:24px;height:24px;border-radius:50%;background:var(--gold);color:var(--brand-deep);font-style:normal;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.nextstep small{color:var(--gold);font-weight:700;font-size:12.5px}
+.nextstep b{font-size:17px;line-height:1.5}
+.nextstep .sub{color:#dbe7f3;font-size:13px}
+.nextstep .btn{align-self:flex-start;background:var(--gold);border-color:var(--gold);color:var(--brand-deep);font-weight:700;font-size:14px;padding:8px 18px}
+.nextstep .btn svg{color:var(--brand-deep)}
+details.scd summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13.5px;font-weight:600;color:var(--ink)}
+details.scd summary::-webkit-details-marker{display:none}
+details.scd summary::after{content:"تفاصيل ▾";color:var(--brand);font-size:12.5px;flex:none}
+details.scd[open] summary::after{content:"إخفاء ▴"}
+details.scd[open] summary{margin-bottom:10px}
+details.scd > .stack{gap:10px}
+@media (max-width:599px){
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+  .wrap{padding-top:14px}
+  .trackbar{position:fixed;top:auto;bottom:0;left:0;right:0;margin:0;padding:6px 4px calc(6px + env(safe-area-inset-bottom));display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:2px;background:rgba(255,255,255,.97);border-top:1px solid var(--line);border-bottom:0;box-shadow:0 -2px 10px rgba(20,38,61,.08)}
+  .trackbar .chip{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border:0;background:transparent;padding:4px 2px;border-radius:10px;font-size:11.5px;min-height:50px;color:var(--muted)}
+  .trackbar .chip i{margin:0;font-size:19px;line-height:1.1}
+  .trackbar .chip .lf{display:none}
+  .trackbar .chip .ls{display:block;white-space:nowrap}
+  .trackbar .chip[aria-pressed="true"]{background:var(--brand-soft);color:var(--brand-deep)}
+  .trackbar .chip.wk{background:transparent;color:var(--muted)}
+  .trackbar .chip.wk[aria-pressed="true"]{background:var(--gold-soft);color:var(--gold-ink)}
+  .trackbar .chip.rv{background:transparent;color:var(--muted)}
+  .trackbar .chip.rv[aria-pressed="true"]{background:var(--brand-soft);color:var(--brand-deep)}
+  .btn{min-height:42px}
+  .btn:not(.main){padding:6px 11px}
+}
+
+.week ul li.due{display:flex;flex-direction:column;align-items:stretch;gap:3px;padding:10px 12px;border:1px solid var(--line);border-right:4px solid var(--line);border-radius:10px;background:var(--surface)}
+.week ul li.due.quiz{border-right-color:var(--brand)}
+.week ul li.due.task{border-right-color:var(--gold)}
+.week ul li.due.rec{border-right-color:#1f7f74}
+.recs{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.recs li{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13.5px}
+.recs .btn{min-height:34px;padding:3px 10px}
+.due-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.due-t{font-weight:700;font-size:14px;color:var(--brand-deep)}
+.due-m{font-size:12px;color:var(--muted);font-weight:600;background:var(--bg);border-radius:999px;padding:1px 10px}
+.due-b{font-weight:600;font-size:14.5px}
+.due-d{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px}
+.due-a{margin-top:4px}
+footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);padding-top:12px;display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:space-between}
+footer a{color:var(--brand);font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <img class="logo" src="/nizamiya-y1-b4/logo.png" width="51" height="64" alt="شعار أكاديمية وحي">
+    <div class="top-txt">
+      <span class="eyebrow">أكاديمية وحي · الدراسة النظامية</span>
+      <h1>روابط السنة الثانية، الدفعة الثالثة</h1>
+    </div>
+  </div>
+  <div class="who" id="who" hidden>داخل بحساب <b id="me-mail"></b><button type="button" id="logout">خروج</button></div>
+</header>
+
+<div class="wrap">
+  <section class="card gate" id="gate" hidden>
+    <h2>للطلاب المسجّلين فقط</h2>
+    <p>روابط التسجيلات والملفات والاختبارات متاحة لطلاب السنة الثانية، الدفعة الثالثة. ادخل بحساب جوجل الذي سجّلت به في الأكاديمية.</p>
+    <ol>
+      <li>افتح الصفحة من <b>Chrome</b> أو <b>Safari</b>.</li>
+      <li>اضغط زر جوجل بالأسفل واختر حسابك.</li>
+      <li>ستبقى داخلًا على جهازك مدة يومين، ثم يُطلب منك الدخول مرة أخرى حفاظًا على حسابك.</li>
+    </ol>
+    <div id="g-btn"></div>
+    <div class="mmsg" id="me-msg" role="status"></div>
+    <small>لم يظهر زر جوجل؟ انسخ الرابط وافتحه في Chrome: <button type="button" id="g-copy">نسخ رابط الصفحة</button></small>
+  </section>
+
+  <div class="pickers" id="pickers" hidden>
+    <div class="finalsbar" id="finalsbar" hidden></div>
+    <div class="trackbar" id="tracks" role="tablist" aria-label="المساق"></div>
+    <input class="search" id="q" type="search" placeholder="🔍 ابحث في محاضرات الترمين، مثل: بدر" aria-label="بحث في المحاضرات">
+  </div>
+
+  <main id="main"><div class="msg">جارِ التحميل…</div></main>
+
+  <footer>
+    <span>الروابط تُحدَّث تلقائيًا من شيتات المساقات، وقد يتأخر ظهور التعديل الجديد بضع دقائق.</span>
+    <button type="button" class="lnk" id="tour-open">؟ كيف أستخدم الصفحة</button>
+    <a id="contact" href="https://t.me/wahy_academy" target="_blank" rel="noopener">تواصل مع شئون الطلاب</a>
+  </footer>
+</div>
+
+<div class="modal" id="vid-modal" hidden>
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="vid-t">
+    <div class="mhead"><b id="vid-t"></b><button type="button" class="mx" id="vid-x" aria-label="إغلاق">×</button></div>
+    <div class="vwrap" id="vid-f"></div>
+    <div class="vnote" id="vid-n" hidden></div>
+    <div class="vfoot"><span>التسجيل للمراجعة وتعويض ما فاتك؛ نحفظ لك الدقيقة التي وصلت إليها.</span><a class="btn" id="vid-l" href="#" target="_blank" rel="noopener">فتح على يوتيوب</a></div>
+  </div>
+</div>
+<a class="helpfab" id="helpfab" href="https://t.me/wahy_academy" target="_blank" rel="noopener">💬 تحتاج مساعدة؟</a>
+<div class="modal" id="tour-modal" hidden>
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="tour-t" style="width:min(520px,100%)">
+    <div class="mhead"><b id="tour-t">كيف أستخدم الصفحة؟</b><button type="button" class="mx" id="tour-x" aria-label="إغلاق">×</button></div>
+    <div class="task-b tour"><ol>
+      <li><b>ابدأ من «خطوتك التالية»:</b> البطاقة الزرقاء أعلى الصفحة فيها كل المطلوب منك هذا الأسبوع مرتّبًا: الاختبارات المفتوحة ثم التكليفات ثم الاختبارات القادمة، وتحتها مربعات بحضورك واختباراتك وتكليفاتك.</li>
+      <li><b>الحضور المباشر هو الأساس:</b> بعد كل محاضرة اضغط «✓ حضرتها»، والتسجيل للمراجعة أو لتعويض ما فاتك فقط. واضغط «✓ أدّيته» بعد الاختبار و«✓ أنجزته» بعد التكليف، فتختفي من قائمتك.</li>
+      <li><b>كل مساق في تبويب:</b> من الشريط (أسفل الشاشة على الموبايل) تجد محاضرات المساق وملفاته واختباراته، وآخر محاضرة أولًا.</li>
+      <li><b>قبل النهائيات:</b> يظهر تبويب «📚 مراجعة النهائي» فيه كل محاضرات الترم بتسجيلاتها وملفاتها، وعلّم «✓ راجعتها» لتعرف ما بقي عليك.</li>
+    </ol><div class="tbtns"><button type="button" class="btn main" id="tour-ok">فهمت، لنبدأ</button></div>
+    <p class="tfoot" style="margin:6px 0 0">يمكنك الرجوع إلى هذا الشرح من زر «؟ كيف أستخدم الصفحة» أسفل الصفحة.</p></div>
+  </div>
+</div>
+<div class="modal" id="task-modal" hidden>
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="task-t" style="width:min(560px,100%)">
+    <div class="mhead"><b id="task-t">التكليف</b><button type="button" class="mx" id="task-x" aria-label="إغلاق">×</button></div>
+    <div id="task-b" class="task-b"></div>
+  </div>
+</div>
+<div class="modal" id="rate-modal" hidden>
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="rate-t">
+    <div class="mhead"><b id="rate-t">تقييم المحاضرة</b><button type="button" class="mx" id="rate-x" aria-label="إغلاق">×</button></div>
+    <p class="rnote" id="rate-s" style="padding:10px 16px 0"></p>
+    <form id="rate-f" novalidate></form>
+    <div class="mmsg" id="rate-msg" style="padding:0 16px 16px" role="status"></div>
+  </div>
+</div>
+
+<script>
+/* ===================== الإعدادات =====================
+   لا تُكتب هنا أي روابط أو معرّفات شيتات: كل البيانات تصل من السكربت بعد التحقق من الطالب. */
+const CONFIG = {
+  googleClientId: "85397842419-lp0vhu7dgmecqth7od5mdtbbmofqvus7.apps.googleusercontent.com",
+  verifyUrl: "https://script.google.com/macros/s/AKfycbyxBckeGW1nqiDz1hvJADpB371VnJl_0UFlUUK0FAUVeusxhbg_9r6TmpUralG-GfJ5HA/exec",          // رابط سكربت «روابط النظامية» (ينتهي بـ /exec)
+  contactUrl: "https://t.me/wahy_academy"
+};
+const KEY = { ses:"wahy_y2b3_session", mail:"wahy_y2b3_email", data:"wahy_y2b3_data", track:"wahy-y2b3-track" };
+/* ===================================================== */
+
+const ICON = {
+  play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>',
+  file:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/></svg>',
+  quiz:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l2 2 4-4"/><rect x="4" y="4" width="16" height="16" rx="2"/></svg>',
+  task:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>',
+  folder:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'
+};
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const isUrl = s => /^https?:\/\//i.test((s||"").trim());
+const norm = s => String(s||"").replace(/[ً-ْـ]/g,"").replace(/[أإآ]/g,"ا").replace(/ة/g,"ه").replace(/ى/g,"ي").toLowerCase();
+const store = { get(k){ try{return localStorage.getItem(k)||""}catch(e){return ""} }, set(k,v){ try{ v ? localStorage.setItem(k,v) : localStorage.removeItem(k) }catch(e){} } };
+
+const state = { track: "thu", sub: {}, open: {}, more: {}, q: "" };
+let DATA = null;          // { current, terms:[{id,name,finals,tracks:[{id,name,schedule,subjects:[{name,total,rows}]}]}] }
+let TERM_ORDER = [];
+const parsed = new WeakMap();
+let EXTRA = { tg: {}, rated: [], ann: [] };   // روابط مجموعات تيليجرام + المحاضرات التي قيّمها الطالب
+
+/* ---------- الوقت بتوقيت القاهرة ---------- */
+const DAYS = ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+function cairoNow(){
+  const f = new Intl.DateTimeFormat("en-US", { timeZone:"Africa/Cairo", weekday:"short", year:"numeric", month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit", second:"2-digit", hourCycle:"h23" });
+  const p = {}; f.formatToParts(new Date()).forEach(x => p[x.type] = x.value);
+  const dow = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(p.weekday);
+  return { dow, min: (+p.hour) * 60 + (+p.minute), sec: +p.second, ymd: p.year + "-" + p.month + "-" + p.day };
+}
+const toMin = t => { const a = String(t).split(":"); return (+a[0]) * 60 + (+(a[1] || 0)); };
+const WEEK = 7 * 1440;
+const weekMin = (dow, t) => dow * 1440 + toMin(t);
+/* دقائق متبقية حتى نقطة أسبوعية (0 إن كانت الآن) */
+function untilMin(now, dow, t){ let d = weekMin(dow, t) - (now.dow * 1440 + now.min); if(d < 0) d += WEEK; return d; }
+function inWindow(now, from, to){ const n = now.dow * 1440 + now.min, a = weekMin(from.dow, from.time), b = weekMin(to.dow, to.time); return a <= b ? (n >= a && n < b) : (n >= a || n < b); }
+function fmtLeft(mins, sec){
+  const d = Math.floor(mins / 1440), h = Math.floor(mins % 1440 / 60), m = mins % 60;
+  const parts = [];
+  if(d) parts.push(d === 1 ? "يوم" : d === 2 ? "يومين" : d + (d <= 10 ? " أيام" : " يومًا"));
+  if(h) parts.push(h === 1 ? "ساعة" : h === 2 ? "ساعتين" : h + (h <= 10 ? " ساعات" : " ساعة"));
+  if(!d) parts.push(m + " دقيقة");
+  return parts.join(" و");
+}
+const clock = t => { const m = toMin(t), h = Math.floor(m / 60), mm = m % 60, h12 = h % 12 || 12; return h12 + (mm ? ":" + String(mm).padStart(2, "0") : "") + (h < 12 ? " ص" : h === 12 ? " ظ" : " م"); };
+function termOver(term){ return term.until && cairoNow().ymd > term.until; }
+
+/* ---------- شاهدتها (تُحفظ على جهاز الطالب فقط) ---------- */
+let SEEN = {}; try{ SEEN = JSON.parse(store.get("wahy_y2b3_seen") || "{}") || {}; }catch(e){ SEEN = {}; }
+/* «جزء عم 2» و«جزء تبارك 2» دُمجا في مقرر واحد: معرّفاتهما القديمة تُنقل تلقائيًا */
+const remapId = id => String(id).replace(/^(t[12])\|fri\|1\|/, "$1|fri|0|");
+Object.keys(SEEN).forEach(id => { const n = remapId(id); if(n !== id){ delete SEEN[id]; SEEN[n] = 1; } });
+const lecId = (ctx, l) => ctx ? ctx.term + "|" + ctx.track + "|" + ctx.k + "|" + l.n : "";
+const quizDone = (ctx, l) => lecId(ctx, l) + "|q", taskDone = (ctx, l) => lecId(ctx, l) + "|t";
+/* الحضور المباشر هو الأساس: «|a» = حضرها مباشرة، والمعرّف وحده = عوّضها بالتسجيل */
+const attId = (ctx, l) => lecId(ctx, l) + "|a";
+const attended = (ctx, l) => !!SEEN[attId(ctx, l)];
+const followed = (ctx, l) => !!(SEEN[attId(ctx, l)] || SEEN[lecId(ctx, l)]);
+function setSeen(id, on){ if(!id) return; if(on) SEEN[id] = 1; else delete SEEN[id]; store.set("wahy_y2b3_seen", JSON.stringify(SEEN)); pushSeen(); }
+/* مزامنة «شاهدتها» مع السكربت: تظهر على كل أجهزة الطالب، وتعتمد عليها لجنة المتابعة */
+let seenT = 0;
+function pushSeen(){
+  clearTimeout(seenT);
+  seenT = setTimeout(() => {
+    const ses = store.get(KEY.ses);
+    if(!ses || !/^https:\/\/script\.google\.com\//.test(CONFIG.verifyUrl)) return;
+    fetch(CONFIG.verifyUrl, { method:"POST", body: new URLSearchParams({ action:"seen", session: ses, ids: JSON.stringify(Object.keys(SEEN)) }) }).catch(() => {});
+  }, 2500);
+}
+function mergeSeen(list){
+  if(!Array.isArray(list)) return;
+  const srv = {}; list.forEach(id => { id = remapId(id); srv[id] = 1; SEEN[id] = 1; });
+  store.set("wahy_y2b3_seen", JSON.stringify(SEEN));
+  if(Object.keys(SEEN).some(id => !srv[id])) pushSeen();
+}
+const ytId = u => { const m = String(u || "").match(/(?:youtu\.be\/|v=|\/embed\/|\/live\/|\/shorts\/)([A-Za-z0-9_-]{11})/); return m ? m[1] : ""; };
+/* «كمّل من حيث وقفت»: الثانية التي وصل إليها الطالب في كل فيديو (على جهازه) */
+let POS = {}; try{ POS = JSON.parse(store.get("wahy_y2b3_pos") || "{}") || {}; }catch(e){ POS = {}; }
+function setPos(vid, t, dur){
+  if(!vid || !(t >= 0)) return;
+  if(t < 30 || (dur && t > dur - 45)) delete POS[vid]; else POS[vid] = Math.floor(t);
+  const keys = Object.keys(POS); if(keys.length > 100) delete POS[keys[0]];
+  store.set("wahy_y2b3_pos", JSON.stringify(POS));
+}
+const mmss = s => { s = Math.floor(s); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(x).padStart(2, "0"); };
+const VIDS = {};   // معرّف زر الفيديو ← {url, title, seen}
+const TASKS = {}; let TSEQ = 0;   // زر «عرض التكليف» ← {title, tasks, track, k}
+function taskBtn(title, l, track, k, label, done){ const key = "t" + (++TSEQ); TASKS[key] = { title, tasks: l.tasks, track, k, done }; return `<button type="button" class="btn" data-task="${key}">${label || "عرض التكليف"}</button>`; }
+let VSEQ = 0;
+
+/* ---------- تحويل صفوف الشيت إلى محاضرات ---------- */
+const ORDW = ["الاولي","الثانيه","الثالثه","الرابعه","الخامسه","السادسه","السابعه","الثامنه","التاسعه","العاشره","الحاديه عشر","الثانيه عشر","الثالثه عشر","الرابعه عشر","الخامسه عشر","السادسه عشر","السابعه عشر","الثامنه عشر","التاسعه عشر","العشرون"];
+function ordinalOf(label){
+  const t = norm(label).replace(/المحاضره/g,"").replace(/\s+/g," ").trim();
+  for(let i = ORDW.length - 1; i >= 0; i--){ const w = ORDW[i]; if(t === w || t === w + "ه") return i + 1; }
+  return 0;
+}
+/* روابط اختبارات جوجل المكتوبة بصيغة التعديل تُحوَّل لصيغة الحل حتى يفتحها الطالب */
+function fixUrl(u){
+  const m = (u||"").match(/^https?:\/\/docs\.google\.com\/forms\/(?:u\/\d+\/)?d\/([\w-]{20,})\/(?:edit|viewform)?/);
+  if(m && !/\/d\/e\//.test(u)) return `https://docs.google.com/forms/d/${m[1]}/viewform`;
+  return (u||"").trim();
+}
+/* الأعمدة تُعرف من صف العناوين (وليس من مكانها)، لأن بعض الشيتات فيها أعمدة ملفات إضافية */
+function toSubject(rows){
+  const h = rows.findIndex(r => r.some(c => (c||"").includes("عنوان المحاضرة")));
+  if(h < 0) return { lectures:[], refs:[], shared:[], perLecture:[], latest:null };
+  const head = rows[h].map(c => (c||"").trim());
+  const col = { label:1, title:-1, rec:-1, quiz:-1, refs:-1 }, fileCols = [], taskCols = [];
+  const seen = {};
+  head.forEach((c, i) => {
+    if(c.includes("عنوان")) col.title = i;
+    else if(c.includes("تسجيل")) col.rec = i;
+    else if(c.includes("اختبار")) col.quiz = i;
+    else if(c.includes("تكليف")) taskCols.push(i);
+    else if(c.includes("المراجع")) col.refs = i;
+    else if(c.includes("ملف") || c.includes("كتاب")){
+      let name = c.replace(/^لينك\s*/,"").trim();
+      seen[name] = (seen[name] || 0) + 1;
+      if(seen[name] > 1) name += " (" + seen[name] + ")";
+      fileCols.push({ i, name });
+    }
+  });
+  const get = (r, i) => i < 0 ? "" : (r[i] || "").replace(/\s+/g, " ").trim();
+  const rawCell = (r, i) => i < 0 ? "" : String(r[i] || "").split(/\r?\n/).map(x => x.replace(/[ \t]+/g, " ").trim()).filter(Boolean).join("\n");
+  const lectures = [], refs = []; let refLabel = "";
+  function addTasks(l, r){
+    taskCols.forEach(i => {
+      const v = get(r, i); if(!v) return;
+      if(isUrl(v)){ if(!l.tasks.length) l.tasks.push({ text:"", urls:[] }); l.tasks[l.tasks.length - 1].urls.push(v); }
+      else if(!/^لا يوجد/.test(v)) l.tasks.push({ text: rawCell(r, i) || v, urls: [] });
+    });
+  }
+  rows.slice(h + 1).forEach(r => {
+    const num = get(r, 0), label = get(r, col.label), title = get(r, col.title), rec = get(r, col.rec);
+    const ref = get(r, col.refs);
+    if(ref){
+      if(isUrl(ref)){
+        let name = refLabel || "مراجع المقرر";
+        if(/youtube\.com\/playlist/.test(ref)) name = "قائمة تشغيل · " + name;
+        if(!refs.some(x => x.url === ref)) refs.push({ label: name, url: ref });
+      } else refLabel = ref;
+    }
+    const files = fileCols.map(f => ({ name: f.name, val: get(r, f.i) }));
+    const quiz = get(r, col.quiz);
+    const cont = !num && !label && lectures.length;
+    if(!cont && (title || isUrl(rec))){
+      const n = ordinalOf(label) || parseInt(num) || lectures.length + 1;
+      const l = { n, label: label || ("المحاضرة " + n), title, rec, quiz, files, extra: [], tasks: [] };
+      addTasks(l, r); lectures.push(l);
+    } else if(cont){
+      const prev = lectures[lectures.length - 1];
+      if(isUrl(rec)) prev.extra.push({ name: title || "تسجيل إضافي", url: rec, icon:"play" });
+      files.forEach((f, k) => { if(isUrl(f.val)){ if(!isUrl(prev.files[k].val)) prev.files[k].val = f.val; else prev.extra.push({ name: f.name + " (إضافي)", url: f.val, icon:"file" }); } });
+      if(isUrl(quiz)){ if(!isUrl(prev.quiz)) prev.quiz = quiz; else prev.extra.push({ name: "اختبار إضافي", url: quiz, icon:"quiz" }); }
+      addTasks(prev, r);
+    }
+  });
+  /* عمود ملف فيه نفس الرابط لكل المحاضرات = ملف للمقرر كله، يُعرض مرة واحدة */
+  const shared = [], perLecture = [];
+  fileCols.forEach((f, k) => {
+    const urls = lectures.map(l => l.files[k].val).filter(isUrl);
+    if(!urls.length) return;
+    const uniq = [...new Set(urls)];
+    if(uniq.length === 1 && urls.length > 1){ shared.push({ name: f.name, url: uniq[0] }); return; }
+    /* رابط يتكرر في 3 محاضرات أو أكثر = ملف المقرر كاملًا: يظهر مرة واحدة أعلى المقرر */
+    const cnt = {}; urls.forEach(u => cnt[u] = (cnt[u] || 0) + 1);
+    Object.keys(cnt).filter(u => cnt[u] >= 3).forEach(u => {
+      shared.push({ name: f.name.replace(/ملف المحاضرة/, "ملف المقرر كاملًا"), url: u, full: true });
+      lectures.forEach(l => { if(l.files[k].val === u) l.files[k].val = ""; l.files[k].hide = true; });
+    });
+    if(lectures.some(l => isUrl(l.files[k].val))) perLecture.push(k);
+  });
+  const recorded = lectures.filter(l => isUrl(l.rec));
+  return { lectures, refs, shared, perLecture,
+           showQuiz: lectures.some(l => isUrl(l.quiz)),
+           latest: recorded[recorded.length - 1] || null };
+}
+function subjectOf(sub){
+  if(!sub || !Array.isArray(sub.rows)) return null;
+  if(!parsed.has(sub)) parsed.set(sub, toSubject(sub.rows));
+  return parsed.get(sub);
+}
+
+/* ---------- العرض ---------- */
+function btn(val, label, icon, main, show = true){
+  if(isUrl(val)) return `<a class="btn${main ? " main" : ""}" href="${esc(fixUrl(val))}" target="_blank" rel="noopener">${ICON[icon]}${esc(label)}</a>`;
+  if(val && /^لا يوجد/.test(val)) return `<span class="btn off">${ICON[icon]}${esc(label)}: لا يوجد</span>`;
+  return show ? `<span class="btn off">${ICON[icon]}${esc(label)}: لم يُضف بعد</span>` : "";
+}
+const taskList = l => !l.tasks.length ? "" : `
+  <ul class="tasks">${l.tasks.map((t, i) => `
+    <li><span class="t-text">${ICON.task}${t.text ? taskHtml(t.text) : (l.tasks.length > 1 ? "تكليف " + (i + 1) : "التكليف")}</span>
+      ${t.urls.map((u, k) => `<a class="t-link" href="${esc(fixUrl(u))}" target="_blank" rel="noopener">${t.urls.length > 1 ? "الرابط " + (k + 1) : "فتح الرابط"}</a>`).join("")}</li>`).join("")}
+  </ul>`;
+function vidBtn(url, label, title, id, main = true){
+  if(!isUrl(url) || !ytId(url)) return btn(url, label, "play", true);
+  const k = "v" + (++VSEQ); VIDS[k] = { url, title, seen: id };
+  const at = POS[ytId(url)];
+  return `<button type="button" class="btn${main ? " main" : ""}" data-vid="${k}">${ICON.play}${at ? "أكمل المشاهدة" : esc(label)}${at ? `<span class="at">من <bdi>${mmss(at)}</bdi></span>` : ""}</button>`;
+}
+function rateBtn(id, l, ctx){
+  if(!ctx || !ctx.current || !isUrl(l.rec)) return "";
+  const done = EXTRA.rated.includes(id);
+  return `<button type="button" class="btn rate${done ? " done" : ""}" data-rate="${esc(id)}" data-rt="${esc(ctx.subj + " · " + l.label + (l.title ? ": " + l.title : ""))}">${done ? "✓ قيّمتها · تعديل" : "★ قيّم المحاضرة واسأل المحاضر"}</button>`;
+}
+function attBtns(ctx, l){
+  if(!ctx || !ctx.current || !(isUrl(l.rec) || l.title)) return "";
+  const a = attended(ctx, l), r = !a && SEEN[lecId(ctx, l)];
+  return `<button type="button" class="btn att${a ? " on" : ""}" data-seen="${esc(attId(ctx, l))}" aria-pressed="${a}">${a ? "✓ حضرتها مباشرة" : "○ حضرتها مباشرة"}</button>` +
+    (r ? `<button type="button" class="btn seen-btn" data-seen="${esc(lecId(ctx, l))}" aria-pressed="true" title="إلغاء">✓ عوّضتها بالتسجيل</button>` : "");
+}
+const lecActions = (l, s, ctx) =>
+  attBtns(ctx, l) +
+  vidBtn(l.rec, ctx && ctx.current ? "تسجيل للمراجعة" : "التسجيل", (ctx ? ctx.subj + " · " : "") + l.label + (l.title ? ": " + l.title : ""), lecId(ctx, l), !(ctx && ctx.current)) +
+  l.extra.filter(x => x.icon === "play").map(x => vidBtn(x.url, x.name, x.name, lecId(ctx, l), false)).join("") +
+  s.perLecture.map(k => btn(l.files[k].val, l.files[k].name, "file", false, !l.files[k].hide)).join("") +
+  btn(l.quiz, "الاختبار", "quiz", false, s.showQuiz) +
+  l.extra.filter(x => x.icon !== "play").map(x => btn(x.url, x.name, x.icon)).join("") +
+  (ctx && !ctx.current && isUrl(l.rec) ? `<button type="button" class="btn seen-btn" data-seen="${esc(lecId(ctx, l))}" aria-pressed="${!!SEEN[lecId(ctx, l)]}">${SEEN[lecId(ctx, l)] ? "✓ راجعتها" : "○ راجعتها"}</button>` : "") +
+  rateBtn(lecId(ctx, l), l, ctx);
+const lecItem = (l, s, subjName, ctx) => `
+  <li class="lec${ctx && followed(ctx, l) ? " seen" : ""}">
+    <div class="num">${l.n}</div>
+    <div class="lec-title"><small>${subjName ? esc(subjName) + " · " : ""}${esc(l.label)}</small><strong>${esc(l.title || "—")}${s.latest === l ? '<span class="new">جديد</span>' : ""}</strong></div>
+    <div class="actions">${lecActions(l, s, ctx)}</div>
+    ${taskList(l)}
+  </li>`;
+
+function scheduleCard(term, track){
+  const sc = track.schedule;
+  if(!sc) return "";
+  const row = (k, v) => v ? `<div class="sc-row"><dt>${k}</dt><dd>${esc(v)}</dd></div>` : "";
+  const cur = term.id === DATA.current && !termOver(term);
+  const line = sc && sc.at ? ["🕐 " + DAYS[sc.at.dow] + " " + clock(sc.at.start),
+    sc.recAt ? "🎥 التسجيل " + (sc.recAt.dow === sc.at.dow ? "" : DAYS[sc.recAt.dow] + " ") + clock(sc.recAt.time) : "",
+    sc.quizAt ? "📝 الاختبار " + DAYS[sc.quizAt.from.dow] + "–" + DAYS[sc.quizAt.to.dow] : ""].filter(Boolean).join(" · ") : "";
+  return `<section class="card sched">
+    ${cur && sc && sc.at ? `<div class="next" data-next="${esc(track.id)}"></div>` : ""}
+    ${line ? `<details class="scd"><summary><span>${esc(line)}</span></summary><div class="stack">` : ""}
+    ${sc ? `<dl class="sc-grid">
+      ${row("موعد المحاضرة", sc.time ? sc.time + " بتوقيت القاهرة" : "")}
+      ${row("نزول التسجيل", sc.rec)}
+      ${row("الاختبار التنشيطي", sc.quiz)}
+    </dl>
+    ${(sc.courses||[]).length ? `<ul class="sc-courses">${sc.courses.map(c => `<li><strong>${esc(c.name)}</strong><span>${esc(c.teacher)} · ${c.count} ${c.count <= 10 ? "محاضرات" : "محاضرة"}</span></li>`).join("")}</ul>` : ""}` : ""}
+    ${line ? `</div></details>` : ""}
+    ${cur ? linksRow(term, track) : ""}
+  </section>`;
+}
+const trackIn = (term, id) => term.tracks.find(t => t.id === id);
+
+/* زر التقويم (موعد أسبوعي متكرر حتى نهاية الترم) وزر مجموعة المساق على تيليجرام */
+function calUrl(term, track){
+  const at = track.schedule && track.schedule.at; if(!at) return "";
+  const now = cairoNow(), add = Math.floor(untilMin(now, at.dow, at.start) / 1440);
+  const d = new Date(Date.UTC(+now.ymd.slice(0, 4), +now.ymd.slice(5, 7) - 1, +now.ymd.slice(8, 10) + add));
+  const ymd = d.toISOString().slice(0, 10).replace(/-/g, "");
+  const hm = t => t.replace(":", "") + "00";
+  const until = (term.until || "").replace(/-/g, "");
+  const q = new URLSearchParams({ action:"TEMPLATE", text: track.name + " — الدراسة النظامية (السنة الثانية)", dates: ymd + "T" + hm(at.start) + "/" + ymd + "T" + hm(at.end), ctz:"Africa/Cairo",
+    details: "أكاديمية وحي — روابط التسجيلات والملفات: " + location.href.split("#")[0] + "#" + track.id });
+  if(until) q.set("recur", "RRULE:FREQ=WEEKLY;UNTIL=" + until + "T235959Z");
+  return "https://calendar.google.com/calendar/render?" + q.toString();
+}
+function linksRow(term, track){
+  const out = [], c = calUrl(term, track), tg = EXTRA.tg[track.id];
+  if(tg) out.push(`<a class="btn main" href="${esc(tg)}" target="_blank" rel="noopener">✈ مجموعة ${esc(track.name)} على تيليجرام</a>`);
+  if(c) out.push(`<a class="btn" href="${esc(c)}" target="_blank" rel="noopener">📅 أضف مواعيد المساق لتقويمي</a>`);
+  return out.length ? `<div class="links-row">${out.join("")}</div>` : "";
+}
+/* العدّاد: يُحدَّث كل 30 ثانية دون إعادة رسم الصفحة */
+function tickNext(){
+  document.querySelectorAll("[data-next]").forEach(el => {
+    const term = TERM_ORDER[0]; if(!term) return;
+    const now = cairoNow();
+    const tracks = el.dataset.next === "all" ? term.tracks : [trackIn(term, el.dataset.next)];
+    const list = tracks.filter(t => t && t.schedule && t.schedule.at).map(t => ({ t, at: t.schedule.at,
+      live: inWindow(now, { dow: t.schedule.at.dow, time: t.schedule.at.start }, { dow: t.schedule.at.dow, time: t.schedule.at.end }),
+      left: untilMin(now, t.schedule.at.dow, t.schedule.at.start) }));
+    if(!list.length) return;
+    const liveOne = list.find(x => x.live), nx = list.sort((a, b) => a.left - b.left)[0], all = el.dataset.next === "all";
+    el.classList.toggle("live", !!liveOne);
+    el.innerHTML = liveOne ? `<span class="dot"></span> ${all ? esc(liveOne.t.name) + ": " : ""}المحاضرة منعقدة الآن حتى ${clock(liveOne.at.end)} · الرابط في مجموعة المساق على تيليجرام`
+      : `${all ? (() => { const sh = nx.t.name.replace(/^مساق\s+/, ""); return "أقرب محاضرة: " + esc(sh) + (sh.startsWith(DAYS[nx.at.dow]) ? "" : " · " + DAYS[nx.at.dow]); })() : "المحاضرة القادمة: " + DAYS[nx.at.dow]} ${clock(nx.at.start)} · <span class="cd">بعد ${fmtLeft(nx.left, now.sec)}</span>`;
+  });
+}
+
+/* ---------- الإعلانات ---------- */
+function annStrip(trackId){
+  const list = (EXTRA.ann || []).filter(a => !a.track || trackId === "week" || a.track === trackId);
+  if(!list.length) return "";
+  return `<section class="ann">${list.map(a => `<p>📣 ${a.track && trackId === "week" ? `<b>${esc((trackIn(TERM_ORDER[0], a.track) || {}).name || "")}:</b> ` : ""}${esc(a.text)}</p>`).join("")}</section>`;
+}
+/* ---------- «كمّل من حيث وقفت» ---------- */
+function lastWatched(){ try{ return JSON.parse(store.get("wahy_y2b3_last") || "null"); }catch(e){ return null; } }
+
+/* بند في «مطلوب منك»: نوعه واضح (اختبار/تكليف/تسجيلات) ثم المساق ثم التفاصيل */
+function dueItem(kind, type, trackName, title, detail, action){
+  return `<li class="due ${kind}"><div class="due-h"><span class="due-t">${type}</span><span class="due-m">${esc(trackName)}</span></div>
+    <div class="due-b">${title}</div><div class="due-d">${detail}</div>${action ? `<div class="due-a">${action}</div>` : ""}</li>`;
+}
+/* ---------- «خطوتك التالية»: أهم شيء واحد الآن ---------- */
+const NS_COUNT = { q: 0, t: 0 };
+function nextStep(term, now, over){
+  NS_COUNT.q = NS_COUNT.t = 0;
+  if(over) return "";
+  /* كل المطلوب هذا الأسبوع: الاختبارات المفتوحة ثم التكليفات ثم الاختبارات القادمة */
+  const row = (title, sub, action) => `<div class="ns-row" data-kind="KIND"><b>${title}</b>${sub ? `<span class="sub">${sub}</span>` : ""}${action || ""}</div>`;
+  const cand = [];
+  term.tracks.forEach(track => {
+    const sc = track.schedule; if(!track.subjects || !track.subjects.length) return;
+    const k = subjOrder(term, track)[0], sub = track.subjects[k], r = sub && subjectOf(sub); if(!r) return;
+    const ctx = { term: term.id, track: track.id, k, subj: sub.name, current: true }, short = track.name.replace(/^مساق\s+/, "");
+    const l = r.latest;
+    const qOpen = l && sc && sc.quizAt && inWindow(now, sc.quizAt.from, sc.quizAt.to);
+    const toOpen = sc && sc.quizAt ? untilMin(now, sc.quizAt.from.dow, sc.quizAt.from.time) : WEEK;
+    const toLec = sc && sc.at ? untilMin(now, sc.at.dow, sc.at.start) : WEEK;
+    /* خانة الاختبار في الشيت: رابط = اختبار، «بدون اختبار» = لا يظهر، فارغة = متوقَّع ورابطه لم ينزل بعد */
+    const noQuiz = l && /بدون\s*اختبار|لا\s*يوجد/.test(l.quiz || "");
+    if(qOpen && !noQuiz && !SEEN[quizDone(ctx, l)]){
+      const left = untilMin(now, sc.quizAt.to.dow, sc.quizAt.to.time), has = isUrl(l.quiz);
+      const urgent = left < 1440;
+      cand.push({ p: urgent ? 0 : 1, w: left, kind: "q", urgent, html: row(`${urgent ? "⚠️" : "📝"} اختبار ${esc(sub.name)} · ${esc(l.label)}`, `${urgent ? `<span class="ns-warn">يُقفل خلال ${fmtLeft(left)}</span> · ` : ""}${esc(short)} · مفتوح الآن · يُقفل ${DAYS[sc.quizAt.to.dow]} ${clock(sc.quizAt.to.time)}${urgent ? "" : ` · باقي ${fmtLeft(left)}`}${has ? "" : " · سيظهر الرابط هنا فور نشره"}`, `<div class="ns-act">${has ? btn(l.quiz, "ابدأ الاختبار", "quiz", true) : ""}<button type="button" class="btn ghost" data-done="${esc(quizDone(ctx, l))}">✓ أدّيته</button></div>`) });
+    }
+    if(l && l.tasks.length && !SEEN[taskDone(ctx, l)]) cand.push({ p: 2, w: toOpen, kind: "t", html: row(`✍️ تكليف ${esc(sub.name)} · ${esc(l.label)}`, esc(short), `<div class="ns-act">${taskBtn(sub.name + " · " + l.label, l, track.id, k, "عرض التكليف", taskDone(ctx, l))}<button type="button" class="btn ghost" data-done="${esc(taskDone(ctx, l))}">✓ أنجزته</button></div>`) });
+    /* اختبار آخر محاضرة لم يُفتح بعد (يُفتح قبل المحاضرة التالية) */
+    if(l && sc && sc.quizAt && !qOpen && !noQuiz && toOpen < toLec && !SEEN[quizDone(ctx, l)])
+      cand.push({ p: 3, w: toOpen, kind: "q", html: row(`📝 اختبار ${esc(sub.name)} · ${esc(l.label)}`, `${esc(short)} · يُفتح بعد ${fmtLeft(toOpen)} (${DAYS[sc.quizAt.from.dow]} ${clock(sc.quizAt.from.time)}) ويُقفل ${DAYS[sc.quizAt.to.dow]} ${clock(sc.quizAt.to.time)}`, `<button type="button" class="btn ghost" data-ics>🔔 نبّهني في تقويم هاتفي</button>`) });
+  });
+  cand.sort((a, b) => a.p - b.p || a.w - b.w);
+  NS_COUNT.q = cand.filter(c => c.kind === "q").length; NS_COUNT.t = cand.length - NS_COUNT.q;
+  if(!cand.length) return `<section class="nextstep"><small>خطوتك التالية</small><b>لا يوجد عليك اختبار ولا تكليف الآن، بارك الله فيك 🌿</b><span class="sub">ستظهر هنا اختبارات الأسبوع القادم وتكليفاته فور نشرها.</span></section>`;
+  const nq = cand.filter(c => c.kind === "q").length, nt = cand.length - nq;
+  const cnt = [nq ? (nq === 1 ? "اختبار واحد" : nq === 2 ? "اختباران" : nq + " اختبارات") : "", nt ? (nt === 1 ? "تكليف واحد" : nt === 2 ? "تكليفان" : nt + " تكليفات") : ""].filter(Boolean).join(" و");
+  return `<section class="nextstep"><small>خطوتك التالية · المطلوب منك هذا الأسبوع</small><b>عليك ${cnt}</b><div class="ns-list">${cand.map((c, i) => c.html.replace('<div class="ns-row" data-kind="KIND">', `<div class="ns-row${c.urgent ? " urgent" : ""}" data-kind="${c.kind}"><i class="ns-n">${i + 1}</i>`)).join("")}</div></section>`;
+}
+
+/* نص التكليف كنقاط: أسطر الشيت كما هي، والترقيم (1- 2- أو ١- ٢-) يبدأ سطرًا جديدًا */
+function taskPoints(text){
+  let t = String(text || "").replace(/\s+(?=(?:[0-9\u0660-\u0669]{1,2}\s*[-–.)]\s))/g, "\n");
+  return t.split("\n").map(x => x.trim()).filter(Boolean);
+}
+function taskHtml(text){
+  const p = taskPoints(text);
+  return p.length > 1 ? `<ul class="tpts">${p.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : `<p>${esc(p[0] || "")}</p>`;
+}
+/* ---------- نافذة التكليف (بدل الانتقال لصفحة المقرر) ---------- */
+function openTask(key){
+  const t = TASKS[key]; if(!t) return;
+  document.getElementById("task-t").textContent = "التكليف · " + t.title;
+  document.getElementById("task-b").innerHTML = t.tasks.map((x, i) => `<div class="ti"><b>${x.text ? "" : (t.tasks.length > 1 ? "تكليف " + (i + 1) : "التكليف")}</b>${x.text ? taskHtml(x.text) : ""}${x.urls.length ? `<div class="ta">${x.urls.map((u, j) => `<a class="btn main" href="${esc(fixUrl(u))}" target="_blank" rel="noopener">${x.urls.length > 1 ? "فتح الرابط " + (j + 1) : "فتح التكليف"}</a>`).join("")}</div>` : ""}</div>`).join("") +
+    `<div class="tfoot">${t.done ? `<button type="button" class="btn main" data-done="${esc(t.done)}">${SEEN[t.done] ? "✓ أنجزته (إلغاء)" : "✓ أنجزت التكليف"}</button> ` : ""}<button type="button" class="lnk" data-open="${esc(t.track)}" data-k="${t.k}">عرض المحاضرة في صفحة المساق</button></div>`;
+  document.getElementById("task-modal").hidden = false;
+}
+function closeTask(){ document.getElementById("task-modal").hidden = true; }
+/* ---------- تنبيهات في تقويم الهاتف: ملف .ics بمواعيد الترم وتنبيهاتها ---------- */
+function icsFile(){
+  const term = TERM_ORDER[0]; if(!term) return;
+  const now = cairoNow(), pad = n => String(n).padStart(2, "0");
+  const until = (term.until || "").replace(/-/g, "") + "T215959Z";
+  /* أول موعد قادم لنقطة أسبوعية، بتوقيت UTC (القاهرة +2 في الشتاء) */
+  const first = (dow, t, shiftMin) => {
+    const add = Math.floor((untilMin(now, dow, t) + (shiftMin || 0)) / 1440);
+    const base = Date.UTC(+now.ymd.slice(0, 4), +now.ymd.slice(5, 7) - 1, +now.ymd.slice(8, 10) + add, 0, toMin(t) - 120);
+    const d = new Date(base);
+    return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + "T" + pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + "00Z";
+  };
+  const ev = [], site = location.href.split("#")[0];
+  const add = (uid, title, start, durMin, alarm, desc) => ev.push(["BEGIN:VEVENT", "UID:" + uid + "@wahy-nizamiya-y2b3", "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z", "DTSTART:" + start, "DURATION:PT" + durMin + "M",
+    "RRULE:FREQ=WEEKLY;UNTIL=" + until, "SUMMARY:" + title, "DESCRIPTION:" + desc + " " + site, "BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + title, "TRIGGER:" + alarm, "END:VALARM", "END:VEVENT"].join("\r\n"));
+  term.tracks.forEach(tr => {
+    const sc = tr.schedule; if(!sc) return; const short = tr.name.replace(/^مساق\s+/, "");
+    if(sc.at) add(tr.id + "-lec", "محاضرة " + short + " (الدراسة النظامية)", first(sc.at.dow, sc.at.start), toMin(sc.at.end) - toMin(sc.at.start), "-PT30M", "رابط الحضور في مجموعة المساق على تيليجرام.");
+    if(sc.quizAt){
+      add(tr.id + "-qo", "فُتح اختبار " + short + " التنشيطي", first(sc.quizAt.from.dow, sc.quizAt.from.time), 15, "PT0M", "الاختبار من صفحة الروابط:");
+      add(tr.id + "-qc", "باقي 3 ساعات على قفل اختبار " + short, first(sc.quizAt.to.dow, sc.quizAt.to.time, -180), 15, "PT0M", "لو لم تحل الاختبار بعد:");
+    }
+  });
+  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Wahy Academy//Nizamiya Y1B4//AR", "CALSCALE:GREGORIAN", "X-WR-CALNAME:الدراسة النظامية — وحي", ...ev, "END:VCALENDAR"].join("\r\n");
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" })); a.download = "wahy-nizamiya-tanbihat.ics";
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+}
+
+/* ---------- «درجاتي» (لا تظهر إلا إذا فعّلتها اللجنة من السكربت) ---------- */
+function gradesCard(){
+  const g = EXTRA.grades; if(!Array.isArray(g)) return "";
+  if(!g.length) return `<section class="card week grades"><h3>📊 درجاتي في الاختبارات التنشيطية</h3><p class="rnote">لم تُسجَّل لك درجات بعد. تظهر هنا بعد حل الاختبار بساعة تقريبًا.</p></section>`;
+  const sum = g.reduce((a, x) => a + (+x.score || 0), 0), max = g.reduce((a, x) => a + (+x.max || 0), 0);
+  return `<section class="card week grades"><h3>📊 درجاتي في الاختبارات التنشيطية</h3>
+    ${max ? `<p class="rnote">المجموع: <b>${sum} من ${max}</b> (${Math.round(sum / max * 100)}%) في ${g.length === 1 ? "اختبار واحد" : g.length === 2 ? "اختبارين" : g.length <= 10 ? g.length + " اختبارات" : g.length + " اختبارًا"}</p>` : ""}
+    <table><thead><tr><th>المساق</th><th>الاختبار</th><th>الدرجة</th></tr></thead><tbody>${g.map(x =>
+      `<tr><td>${esc(String(x.track || "").replace(/^مساق\s+/, ""))}</td><td>${esc(x.subject)} · ${esc(x.lecture)}</td><td class="sc">${esc(x.score)}${x.max ? " / " + esc(x.max) : ""}</td></tr>`).join("")}</tbody></table></section>`;
+}
+/* ---------- تذكير شخصي على تيليجرام (لا يظهر إلا إذا فعّلته اللجنة من السكربت) ---------- */
+function tgCard(){
+  if(!EXTRA.tgBot) return "";
+  if(EXTRA.tgOn) return `<div class="tgrem on">🔔 التذكيرات مفعّلة على تيليجرام · لإيقافها أرسل /stop للبوت</div>`;
+  return `<div class="tgrem"><span>🔔 هل تريد أن تصلك التذكيرات على تيليجرام؟ (نزول التسجيل، فتح الاختبار وقفله)</span><button type="button" class="btn main" data-tglink>فعّل التذكيرات</button></div>`;
+}
+function tgLink(b){
+  const w = window.open("", "_blank"), ses = store.get(KEY.ses);
+  b.disabled = true; b.textContent = "جارٍ التجهيز…";
+  fetch(CONFIG.verifyUrl, { method:"POST", body: new URLSearchParams({ action:"tglink", session: ses }) }).then(r => r.json()).then(d => {
+    if(d && d.ok && /^https:\/\/t\.me\//.test(d.url)){ if(w) w.location = d.url; else location.href = d.url; b.textContent = "اضغط «Start» في تيليجرام ثم ارجع هنا"; }
+    else { if(w) w.close(); b.disabled = false; b.textContent = "تعذّر الآن، حاول لاحقًا"; }
+  }).catch(() => { if(w) w.close(); b.disabled = false; b.textContent = "تعذّر الاتصال، حاول مرة أخرى"; });
+}
+
+
+/* ---------- تبويب «مراجعة النهائي»: كل محاضرات الترم بتسجيلاتها وملفاتها، وعلامة «راجعتها» ---------- */
+const revId = (ctx, l) => lecId(ctx, l) + "|r";
+function reviewView(){
+  const term = TERM_ORDER[0], d = daysToFinals(term);
+  let all = 0, done = 0;
+  const tracks = term.tracks.map(track => {
+    const short = track.name.replace(/^مساق\s+/, "");
+    const subs = (track.subjects || []).map((sub, k) => {
+      const r = subjectOf(sub); if(!r) return "";
+      const lecs = r.lectures.filter(l => isUrl(l.rec) || l.title); if(!lecs.length) return "";
+      const ctx = { term: term.id, track: track.id, k, subj: sub.name, current: false };
+      const a = lecs.filter(l => SEEN[revId(ctx, l)]).length; all += lecs.length; done += a;
+      const key = "rv|" + track.id + "|" + k, pct = Math.round(a / lecs.length * 100);
+      const files = [...r.shared.map(f => btn(f.url, f.name, "file", false)), ...r.refs.map(f => btn(f.url, f.label, "file", false))].join("");
+      const items = lecs.map(l => { const on = !!SEEN[revId(ctx, l)];
+        return `<li class="rv-l${on ? " on" : ""}"><span class="num">${l.n}</span><span class="rv-t"><small>${esc(l.label)}</small>${esc(l.title || "—")}</span><span class="rv-a">${isUrl(l.rec) ? vidBtn(l.rec, "التسجيل", sub.name + " · " + l.label + (l.title ? ": " + l.title : ""), "", false) : ""}${r.perLecture.map(i => isUrl(l.files[i].val) ? btn(l.files[i].val, l.files[i].name, "file", false) : "").join("")}<button type="button" class="btn rv-b${on ? " on" : ""}" data-done="${esc(revId(ctx, l))}" aria-pressed="${on}">${on ? "✓ راجعتها" : "○ راجعتها"}</button></span></li>`; }).join("");
+      return `<details class="rv-s" data-more="${esc(key)}"${state.more[key] ? " open" : ""}><summary><b>${esc(sub.name)}</b><span class="rv-c${a === lecs.length ? " full" : ""}">${a === lecs.length ? "✓ " : ""}راجعت ${a} من ${lecs.length}</span><span class="rv-bar"><i style="width:${pct}%"></i></span></summary>${files ? `<div class="rv-files">${files}</div>` : ""}<ol class="rv-list">${items}</ol></details>`;
+    }).join("");
+    return subs ? `<section class="card week"><h3>${esc(short)}</h3>${subs}</section>` : "";
+  }).join("");
+  const pct = all ? Math.round(done / all * 100) : 0;
+  return `<div class="stack"><section class="rv-head"><small>📚 مراجعة النهائي</small><b>${term.finals ? `الاختبارات النهائية: ${esc(term.finals)}` : "مراجعة مقررات الترم"}${d === null ? "" : ` · ${finalsLeft(d)}`}</b>
+    <span class="sub">افتح كل مقرر، راجع محاضراته بالتسجيل والملف، وعلّم «✓ راجعتها» بعد كل محاضرة.</span>
+    <div class="rv-tot"><span>راجعت ${done} من ${all} محاضرة</span><span class="rv-bar big"><i style="width:${pct}%"></i></span><b>${pct}%</b></div></section>${tracks}</div>`;
+}
+/* ---------- تبويب «هذا الأسبوع»: كل المساقات في صفحة واحدة ---------- */
+function weekView(){
+  const term = TERM_ORDER[0], now = cairoNow(), nowMin = now.dow * 1440 + now.min;
+  const out = [annStrip("week")];
+  const over = termOver(term);
+  out.push(nextStep(term, now, over));
+  if(!over) out.push(`<div class="next" data-next="all"></div>`);
+  const last = lastWatched();
+  const lastAt = last && last.url ? POS[ytId(last.url)] : 0;
+  if(lastAt) { const k = "v" + (++VSEQ); VIDS[k] = { url: last.url, title: last.title, seen: last.id };
+    out.push(`<button type="button" class="resume" data-vid="${k}"><i class="rp">▶ أكمل من <bdi>${mmss(lastAt)}</bdi>:</i> <span>${esc(last.title)}</span></button>`); }
+  out.push(tgCard());
+
+  /* حضورك هذا الأسبوع: آخر محاضرة في كل مساق لم تسجّل حضورها */
+  const unseen = []; let unseenAll = 0;
+  if(!over) term.tracks.forEach(track => {
+    const sc = track.schedule; if(!track.subjects || !track.subjects.length) return;
+    const short = track.name.replace(/^مساق\s+/, "");
+    let unseenN = 0;
+    subjOrder(term, track).forEach((k, pos) => {
+      const sub = track.subjects[k], r = subjectOf(sub); if(!r) return;
+      const ctx = { term: term.id, track: track.id, k, subj: sub.name, current: true };
+      if(pos !== 0 || !r.latest) return;
+      const l = r.latest;
+      if(!followed(ctx, l)){ unseenN++;
+        unseen.push(`<li><span><b>${esc(short)}</b>: ${esc(sub.name)} · ${esc(l.label)}</span><span class="ns-act"><button type="button" class="btn main" data-seen="${esc(attId(ctx, l))}">✓ حضرتها</button>${isUrl(l.rec) ? vidBtn(l.rec, "تسجيل للمراجعة", sub.name + " · " + l.label + (l.title ? ": " + l.title : ""), lecId(ctx, l), false) : ""}</span></li>`); }
+    });
+    unseenAll += unseenN;
+  });
+  const due = [];
+  if(unseen.length) due.unshift(`<li class="due rec"><div class="due-h"><span class="due-t">🎓 محاضرات الأسبوع: حضرتها؟</span><span class="due-m">آخر محاضرة في كل مساق</span></div><div class="due-d">علّم ما حضرته مباشرة، ومن فاتته محاضرة يعوّضها بالتسجيل قبل اختبارها</div><ul class="recs">${unseen.join("")}</ul></li>`);
+  /* ملخص ومربعات سريعة تحت «خطوتك التالية» */
+  if(!over){
+    const nQ = NS_COUNT.q, nT = NS_COUNT.t;
+    const tile = (ico, name, n, jump, zero) => `<button type="button" class="tile${n === 0 ? " zero" : ""}" data-jump="${jump}"><i>${ico}</i><b>${name}</b><span>${n === null ? zero : n ? n : "✓"}</span></button>`;
+    out.splice(2, 0, `<section class="tiles-wrap"><div class="tiles">
+      ${tile("🎓", "سجّل حضورك", unseenAll, "w-rec")}${tile("📝", "الاختبارات", nQ, "w-quiz")}${tile("✍️", "التكليفات", nT, "w-task")}${tile("🗓", "جدول الترم", null, "w-term", "عرض")}</div></section>`);
+  }
+  out.push(`<section class="card week" id="w-due"><h3>حضورك هذا الأسبوع</h3>${due.length ? `<ul>${due.join("")}</ul>` : `<p class="rnote">سجّلت حضور كل محاضرات الأسبوع، بارك الله فيك 🌿</p>`}</section>`);
+  out.push(gradesCard());
+
+  /* أجندة الأسبوع من السبت إلى الجمعة */
+  if(!over){
+    const startDow = 6, ev = [];
+    term.tracks.forEach(track => { const sc = track.schedule; if(!sc || !sc.at) return; const short = track.name.replace(/^مساق\s+/, "");
+      ev.push({ dow: sc.at.dow, t: sc.at.start, txt: `🎓 محاضرة ${short} · ${clock(sc.at.start)}–${clock(sc.at.end)}` });
+      if(sc.recAt) ev.push({ dow: sc.recAt.dow, t: sc.recAt.time, txt: `🎥 نزول تسجيل ${short} · ${clock(sc.recAt.time)}` });
+      if(sc.quizAt){ ev.push({ dow: sc.quizAt.from.dow, t: sc.quizAt.from.time, txt: `📝 فتح اختبار ${short} · ${clock(sc.quizAt.from.time)}` });
+                     ev.push({ dow: sc.quizAt.to.dow, t: sc.quizAt.to.time, txt: `⏳ قفل اختبار ${short} · ${clock(sc.quizAt.to.time)}` }); }
+    });
+    const days = [0,1,2,3,4,5,6].map(i => (startDow + i) % 7);
+    const pos = d => (d - startDow + 7) % 7, todayPos = pos(now.dow);
+    const rows = days.map(d => {
+      const items = ev.filter(e => e.dow === d).sort((a, b) => toMin(a.t) - toMin(b.t));
+      if(!items.length) return null;
+      return { near: pos(d) === todayPos || pos(d) === todayPos + 1, html: `<div class="day${d === now.dow ? " today" : ""}"><b>${DAYS[d]}${d === now.dow ? " · اليوم" : pos(d) === todayPos + 1 ? " · بكرة" : ""}</b><ul>${items.map(e => `<li class="${pos(d) * 1440 + toMin(e.t) < todayPos * 1440 + now.min ? "past" : ""}">${esc(e.txt)}</li>`).join("")}</ul></div>` };
+    }).filter(Boolean);
+    let near = rows.filter(r => r.near);
+    if(!near.length) near = rows.filter((r, i) => i === rows.findIndex(x => !x.near)).slice(0, 1);
+    const rest = rows.filter(r => !near.includes(r));
+    out.push(`<section class="card week"><h3>أجندة الأسبوع</h3><div class="agenda">${near.map(r => r.html).join("")}</div>
+      ${rest.length ? `<details class="more" data-more="agenda"${state.more.agenda ? " open" : ""}><summary>عرض الأسبوع كله</summary><div class="agenda">${rest.map(r => r.html).join("")}</div></details>` : ""}</section>`);
+    out.push(`<div class="icsbar"><span>🔔 نبّهني على هاتفي: قبل كل محاضرة، وعند فتح كل اختبار، وقبل قفله بـ3 ساعات</span><button type="button" class="btn main" data-ics>أضف التنبيهات لتقويمي</button></div>`);
+  }
+
+  /* جدول الترم */
+  const trs = term.tracks.map(track => {
+    const sc = track.schedule || {}, order = subjOrder(term, track), k = order[0], sub = track.subjects[k], r = sub && subjectOf(sub);
+    const rec = r ? r.lectures.filter(x => isUrl(x.rec)).length : 0;
+    return `<tr><td><button type="button" class="lnk" data-open="${esc(track.id)}">${esc(track.name.replace(/^مساق\s+/, ""))}</button></td><td>${esc(sc.time || "—")}</td><td>${sub ? esc(sub.name) : "—"}${sub ? `<small>${sub.total ? rec + " من " + sub.total : rec + " محاضرة"}</small>` : ""}</td></tr>`;
+  }).join("");
+  out.push(`<section class="card week" id="w-term"><h3>جدول ${esc(term.name)}</h3><table class="tt"><thead><tr><th>المساق</th><th>الموعد</th><th>المقرر الحالي</th></tr></thead><tbody>${trs}</tbody></table></section>`);
+
+  return `<div class="stack">${out.join("")}</div>`;
+}
+
+/* «المطلوب منك هذا الأسبوع»: الاختبار التنشيطي + تكليفات آخر محاضرة + ما لم تشاهده */
+function weekCard(term, track){
+  const sc = track.schedule; if(!sc || termOver(term)) return "";
+  const now = cairoNow(), items = [];
+  subjOrder(term, track).forEach(k => {
+    const sub = track.subjects[k], r = subjectOf(sub); if(!r || !r.latest) return;
+    const l = r.latest, ctx = { term: term.id, track: track.id, k, subj: sub.name, current: true };
+    if(sc.quizAt && isUrl(l.quiz)){
+      const open = inWindow(now, sc.quizAt.from, sc.quizAt.to);
+      items.push(`<li><span class="pill ${open ? "open" : ""}">${open ? "مفتوح الآن" : "يُفتح " + DAYS[sc.quizAt.from.dow] + " " + clock(sc.quizAt.from.time)}</span>
+        اختبار ${esc(sub.name)} · ${esc(l.label)}${open ? ` <small style="color:var(--muted)">حتى ${DAYS[sc.quizAt.to.dow]} ${clock(sc.quizAt.to.time)}</small>` : ""}
+        ${open ? btn(l.quiz, "ابدأ الاختبار", "quiz", true) : ""}</li>`);
+    }
+    if(l.tasks.length) items.push(`<li><span class="pill warn">تكليف</span> ${esc(sub.name)} · ${esc(l.label)}: ${l.tasks.length === 1 ? "تكليف واحد" : l.tasks.length + " تكليفات"} <button type="button" class="btn" data-goto="${k}" data-term="${esc(term.id)}">عرض</button></li>`);
+    if(!followed(ctx, l)) items.push(`<li><span class="pill">حضرتها؟</span> ${esc(sub.name)} · ${esc(l.label)} <button type="button" class="btn main" data-seen="${esc(attId(ctx, l))}">✓ حضرتها</button></li>`);
+  });
+  if(!items.length) return "";
+  return `<section class="card week"><h3>المطلوب منك هذا الأسبوع</h3><ul>${items.join("")}</ul></section>`;
+}
+
+/* أيام حتى الاختبارات النهائية (null لو غير محددة) */
+function daysToFinals(term){
+  if(!term || !term.finalsFrom) return null;
+  const now = cairoNow(), ymd = x => Date.UTC(+x.slice(0,4), +x.slice(5,7) - 1, +x.slice(8,10));
+  return Math.round((ymd(term.finalsFrom) - ymd(now.ymd)) / 864e5);
+}
+const finalsLeft = d => d > 0 ? `باقي ${d === 1 ? "يوم" : d === 2 ? "يومين" : d + (d <= 10 ? " أيام" : " يومًا")}` : d === 0 ? "تبدأ اليوم" : "بدأت";
+/* تبويب «مراجعة النهائي» يظهر قبل النهائيات بـ 19 يومًا (أول ديسمبر لنهائيات 20 ديسمبر) */
+const REVIEW_DAYS = 19;
+function reviewOpen(){ const d = daysToFinals(TERM_ORDER[0]); return d !== null && d <= REVIEW_DAYS; }
+/* شريط الاختبارات النهائية أعلى الصفحة (ظاهر في كل التبويبات) */
+function finalsBar(){
+  const el = document.getElementById("finalsbar"), term = TERM_ORDER[0];
+  if(!el || !term || !term.finals){ if(el) el.hidden = true; return; }
+  const d = daysToFinals(term), cd = d === null ? "" : finalsLeft(d);
+  el.innerHTML = `<span class="fb-i">🗓</span><span class="fb-t">الاختبارات النهائية لـ${esc(term.name)}: <b>${esc(term.finals)}</b></span>${cd ? `<span class="fb-c">${cd}</span>` : ""}`;
+  el.hidden = false;
+}
+function drawPickers(){
+  finalsBar();
+  const ICO = { thu:"🌙", fri:"🕌", "sat-am":"☀️", "sat-pm":"🌇" };
+  const short = n => n.replace(/^مساق\s+/, "").replace(/صباحًا$/, "ص").replace(/مساءً$/, "م");
+  document.getElementById("tracks").innerHTML = `<button class="chip wk" data-track="week" aria-pressed="${state.track === "week"}"><i>📌</i><span class="lf">هذا الأسبوع</span><span class="ls">الأسبوع</span></button>` + TERM_ORDER[0].tracks.map(t =>
+    `<button class="chip" data-track="${esc(t.id)}" aria-pressed="${t.id === state.track}"><i>${ICO[t.id] || "📘"}</i><span class="lf">${esc(t.name.replace(/^مساق\s+/, ""))}</span><span class="ls">${esc(short(t.name))}</span></button>`).join("") +
+    (reviewOpen() || state.track === "review" ? `<button class="chip rv" data-track="review" aria-pressed="${state.track === "review"}"><i>📚</i><span class="lf">مراجعة النهائي</span><span class="ls">المراجعة</span></button>` : "");
+}
+
+/* ترتيب المقررات في الترم الحالي: المقرر الجاري أولًا (آخر مقرر بدأ ولم يكتمل)، ثم الأحدث فالأقدم، ثم ما لم يبدأ بعد */
+/* علامة على تبويب المقرر: ✓ شاهد كل المسجّل (والمقرر مكتمل إن عُرف عدده)، ونقطة لو آخر تسجيل لم يُشاهد */
+function tabMark(term, track, k){
+  if(term.id !== DATA.current) return "";
+  const r = subjectOf(track.subjects[k]); if(!r) return "";
+  const ctx = { term: term.id, track: track.id, k };
+  const rec = r.lectures.filter(l => isUrl(l.rec)); if(!rec.length) return "";
+  if(rec.every(l => followed(ctx, l))) return `<span class="ok" title="تابعت كل المحاضرات">✓</span>`;
+  const last = rec[rec.length - 1];
+  return followed(ctx, last) ? "" : `<span class="dotn" title="آخر محاضرة: لم تسجّل حضورها"></span>`;
+}
+/* آخر محاضرة ظاهرة، والباقي مطوي */
+function lectureList(r, ctx, sub){
+  const list = [...r.lectures].reverse().map(l => lecItem(l, r, "", ctx));
+  const key = ctx.term + "|" + ctx.track + "|" + ctx.k;
+  return `<ol class="lectures">${list[0]}</ol>` + (list.length > 1 ? `<details class="more" data-more="${esc(key)}"${state.more[key] ? " open" : ""}><summary>عرض باقي محاضرات ${esc(sub.name)} (${list.length - 1})</summary><ol class="lectures">${list.slice(1).join("")}</ol></details>` : "");
+}
+function progress(r, ctx){
+  const rec = r.lectures.filter(l => isUrl(l.rec)); if(!rec.length) return "";
+  if(!ctx.current) return "";
+  const a = rec.filter(l => attended(ctx, l)).length, w = rec.filter(l => followed(ctx, l)).length, pct = Math.round(a / rec.length * 100);
+  return `<div class="prog"><span>حضرت ${a} من ${rec.length}${w > a ? ` · عوّضت ${w - a} بالتسجيل` : ""}</span><span class="bar"><i style="width:${pct}%"></i></span></div>`;
+}
+function subjOrder(term, track){
+  const idx = track.subjects.map((_, k) => k);
+  if(term.id !== DATA.current) return idx;
+  const info = idx.map(k => { const r = subjectOf(track.subjects[k]); const rec = r ? r.lectures.filter(l => isUrl(l.rec)).length : 0;
+    const total = track.subjects[k].total || 0; return { k, started: rec > 0, done: total > 0 && rec >= total }; });
+  const started = info.filter(x => x.started).reverse();
+  const active = started.find(x => !x.done);
+  const rest = started.filter(x => x !== active);
+  return [...(active ? [active.k] : []), ...rest.map(x => x.k), ...info.filter(x => !x.started).map(x => x.k)];
+}
+function subjectBody(term, track){
+  const order = subjOrder(term, track);
+  let i = term.id in state.sub ? state.sub[term.id] : order[0];
+  if(!(i < track.subjects.length)) i = order[0];
+  const sub = track.subjects[i], r = subjectOf(sub);
+  const ctx = { term: term.id, track: track.id, k: i, subj: sub.name, current: term.id === DATA.current };
+  let body;
+  if(!r) body = `<div class="msg">تعذّر تحميل ${esc(sub.name)}. حدّث الصفحة بعد قليل.</div>`;
+  else {
+    const top = [];
+    r.shared.forEach(x => top.push(`<a class="ref" href="${esc(x.url)}" target="_blank" rel="noopener">${ICON.file}${esc(x.name)}${x.full ? "" : " (للمقرر كله)"}</a>`));
+    r.refs.forEach(x => top.push(`<a class="ref" href="${esc(x.url)}" target="_blank" rel="noopener">${ICON.folder}${esc(x.label)}</a>`));
+    body = `
+      <div class="meta"><span>مقرر ${esc(sub.name)}</span><span>${sub.total ? `${r.lectures.length} من ${sub.total} محاضرة` : `${r.lectures.length} محاضرة`}</span></div>
+      ${top.length ? `<div class="ref-grid">${top.join("")}</div>` : ""}
+      ${progress(r, ctx)}
+      ${r.lectures.length ? lectureList(r, ctx, sub) : `<div class="msg">لم تُضف محاضرات ${esc(sub.name)} بعد.</div>`}`;
+  }
+  return `
+    <div class="tabs" role="tablist">${order.map(k =>
+      `<button class="tab" role="tab" data-term="${esc(term.id)}" data-sub="${k}" aria-selected="${k === i}">${esc(track.subjects[k].name)}${tabMark(term, track, k)}</button>`).join("")}</div>
+    ${body}`;
+}
+
+function termSection(term, track, isNewest){
+  let inner;
+  if(!track || !track.subjects || !track.subjects.length) inner = `<div class="msg">روابط هذا الترم ستُضاف قريبًا إن شاء الله.</div>`;
+  else if(track.subjects.every(s => !Array.isArray(s.rows))) inner = `<div class="msg">تعذّر تحميل الروابط الآن. حدّث الصفحة بعد قليل.</div>`;
+  else inner = subjectBody(term, track);
+  const content = `${track ? scheduleCard(term, track) : ""}${inner}`;
+  if(isNewest) return `<section class="term stack"><h2>${esc(term.name)} <span class="cur">الحالي</span></h2>${content}</section>`;
+  return `<details class="term old" data-old="${esc(term.id)}"${state.open[term.id] ? " open" : ""}>
+    <summary><h2>${esc(term.name)}</h2><span class="hint">تسجيلات وملفات ${esc(term.name)} للمراجعة</span></summary>
+    <div class="stack">${content}</div></details>`;
+}
+
+function drawMain(){
+  const main = document.getElementById("main");
+  const week = state.track === "week" || state.track === "review";
+  const pairs = week ? TERM_ORDER.flatMap(term => term.tracks.map(track => ({ term, track })))
+                     : TERM_ORDER.map(term => ({ term, track: trackIn(term, state.track) }));
+  if(state.q.trim()){
+    const q = norm(state.q.trim());
+    const hits = [];
+    pairs.forEach(p => p.track && p.track.subjects.forEach((sub, k) => {
+      const r = subjectOf(sub); if(!r) return;
+      const ctx = { term: p.term.id, track: p.track.id, k, subj: sub.name, current: p.term.id === DATA.current };
+      r.lectures.forEach(l => { if(norm(l.title).includes(q)) hits.push(lecItem(l, r, (week ? p.track.name.replace(/^مساق\s+/, "") + " · " : "") + p.term.name + " · " + sub.name, ctx)); });
+    }));
+    main.innerHTML = `<div class="stack"><div class="meta"><span>نتائج البحث في ${week ? "كل المساقات" : esc(pairs[0].track ? pairs[0].track.name : "")}</span><span>${hits.length} نتيجة</span></div>
+      ${hits.length ? `<ol class="lectures">${hits.join("")}</ol>` : `<div class="msg">لا توجد محاضرة بهذا الاسم.</div>`}</div>`;
+    return;
+  }
+  if(state.track === "review"){ main.innerHTML = reviewView(); return; }
+  main.innerHTML = week ? weekView() : `<div class="stack">${annStrip(state.track)}${pairs.map((p, k) => termSection(p.term, p.track, k === 0)).join("")}</div>`;
+  tickNext();
+}
+
+function render(){ drawPickers(); drawMain(); }
+function validTrack(id){ return DATA && (id === "week" || id === "review" || TERM_ORDER[0].tracks.some(t => t.id === id)) ? id : null; }
+function go(track){
+  state.track = validTrack(track) || "week"; state.sub = {};
+  store.set(KEY.track, state.track);
+  const h = "#" + state.track;
+  if(location.hash !== h) history.replaceState(null, "", h);
+  render();
+}
+const fromHash = h => { const m = (h || "").replace("#","").match(/^(?:t\d+-)?([\w-]+)$/); return m ? m[1] : null; };
+
+/* ---------- البيانات والدخول ---------- */
+function setData(d){
+  DATA = { current: d.current, terms: d.terms || [] };
+  EXTRA = { tg: d.tg || {}, rated: d.rated || [], ann: d.ann || [], grades: Array.isArray(d.grades) ? d.grades : null, tgBot: d.tgBot || "", tgOn: !!d.tgOn };
+  mergeSeen(d.seen);
+  TERM_ORDER = [...DATA.terms].sort((a, b) => (a.id === DATA.current ? -1 : b.id === DATA.current ? 1 : b.id.localeCompare(a.id)));
+  if(!TERM_ORDER.length || !TERM_ORDER[0].tracks.length) return false;
+  return true;
+}
+function showApp(d, email){
+  if(!setData(d)){ document.getElementById("main").innerHTML = `<div class="msg">الروابط ستُضاف قريبًا إن شاء الله.</div>`; return; }
+  document.getElementById("gate").hidden = true;
+  document.getElementById("pickers").hidden = false;
+  document.getElementById("who").hidden = !email;
+  document.getElementById("me-mail").textContent = email || "";
+  go(fromHash(location.hash) || "week");
+  if(!store.get("wahy_y2b3_tour")) setTimeout(openTour, 600);
+}
+function showGate(){
+  DATA = null;
+  document.getElementById("gate").hidden = false;
+  document.getElementById("pickers").hidden = true;
+  document.getElementById("who").hidden = true;
+  document.getElementById("main").innerHTML = "";
+  renderGoogle();
+}
+function saveLogin(d){
+  store.set(KEY.ses, d.session || store.get(KEY.ses));
+  store.set(KEY.mail, d.email || "");
+  try{ store.set(KEY.data, JSON.stringify({ current: d.current, terms: d.terms, tg: d.tg || {}, rated: d.rated || [], ann: d.ann || [], grades: Array.isArray(d.grades) ? d.grades : null, tgBot: d.tgBot || "", tgOn: !!d.tgOn, at: Date.now() })); }catch(e){ store.set(KEY.data, ""); }
+}
+function logout(){ [KEY.ses, KEY.mail, KEY.data, "wahy_y2b3_seen", "wahy_y2b3_last"].forEach(k => store.set(k, "")); SEEN = {}; clearTimeout(seenT); try{ google.accounts.id.disableAutoSelect(); }catch(e){} showGate(); }
+function setMsg(cls, html){ const m = document.getElementById("me-msg"); m.className = "mmsg " + cls; m.innerHTML = html; }
+function api(q){ return fetch(CONFIG.verifyUrl + (CONFIG.verifyUrl.includes("?") ? "&" : "?") + q).then(r => r.json()); }
+
+let GSI = 0;
+function gsiLoad(cb){
+  if(GSI === 2) return cb();
+  if(GSI === 1) return setTimeout(() => gsiLoad(cb), 300);
+  GSI = 1;
+  const s = document.createElement("script"); s.src = "https://accounts.google.com/gsi/client"; s.async = true;
+  s.onload = () => { GSI = 2; cb(); };
+  s.onerror = () => { GSI = 0; setMsg("bad", "تعذّر تحميل زر جوجل. تأكد من الإنترنت، أو افتح الصفحة في Chrome أو Safari."); };
+  document.head.appendChild(s);
+}
+function renderGoogle(){
+  const box = document.getElementById("g-btn");
+  if(!/\.apps\.googleusercontent\.com$/.test(CONFIG.googleClientId)){ setMsg("bad", "الدخول بحساب جوجل غير مفعّل بعد."); return; }
+  gsiLoad(() => {
+    try{
+      google.accounts.id.initialize({ client_id: CONFIG.googleClientId, callback: onGoogle, ux_mode: "popup", auto_select: false, cancel_on_tap_outside: true, itp_support: true });
+      box.innerHTML = "";
+      google.accounts.id.renderButton(box, { type:"standard", theme:"filled_blue", size:"large", text:"signin_with", shape:"pill", locale:"ar", width: Math.min(300, box.clientWidth || 300) });
+    }catch(e){ setMsg("bad", "تعذّر تشغيل زر جوجل في هذا المتصفح. افتح الصفحة في Chrome أو Safari."); }
+  });
+}
+function onGoogle(resp){
+  if(!resp || !resp.credential || !/^https:\/\/script\.google\.com\//.test(CONFIG.verifyUrl)){ setMsg("bad", "لم يكتمل الدخول، حاول مرة أخرى."); return; }
+  setMsg("", "جارٍ التحقق من تسجيلك وتحميل الروابط…");
+  let done = false;
+  const t = setTimeout(() => { if(!done){ done = true; setMsg("bad", "تعذّر الاتصال الآن، حاول بعد قليل."); } }, 40000);
+  api("idtoken=" + encodeURIComponent(resp.credential)).then(d => {
+    if(done) return; done = true; clearTimeout(t);
+    if(d && d.ok){ saveLogin(d); setMsg("good", "تم التحقق ✓ حيّاك الله."); showApp(d, d.email); }
+    else if(d && d.reason === "not_registered") setMsg("bad", `حساب جوجل <b dir="ltr">${esc(d.email || "")}</b> غير موجود ضمن طلاب الدفعة. ادخل بالحساب الذي سجّلت به، أو <a href="${esc(CONFIG.contactUrl)}" target="_blank" rel="noopener">راسل شئون الطلاب</a>.`);
+    else setMsg("bad", "لم يكتمل التحقق، حاول مرة أخرى.");
+  }).catch(() => { if(done) return; done = true; clearTimeout(t); setMsg("bad", "تعذّر الاتصال الآن، حاول بعد قليل."); });
+}
+function boot(){
+  const ses = store.get(KEY.ses);
+  if(!ses){ showGate(); return; }
+  /* دخول سابق على هذا الجهاز: اعرض المحفوظ فورًا، ثم حدّث من السكربت بصمت */
+  let cached = null; try{ cached = JSON.parse(store.get(KEY.data) || "null"); }catch(e){}
+  if(cached && cached.terms) showApp(cached, store.get(KEY.mail));
+  else document.getElementById("main").innerHTML = `<div class="msg">جارِ تحميل الروابط…</div>`;
+  api("session=" + encodeURIComponent(ses)).then(d => {
+    if(d && d.ok){
+      saveLogin(d);
+      const keepQ = state.q, keepSub = { ...state.sub };
+      showApp(d, d.email); state.q = keepQ; state.sub = keepSub; drawMain();
+    } else if(d && d.ok === false && d.reason !== "error"){ logout(); if(d.reason === "expired") setMsg("", "انتهت مدة الدخول (يومان) حفاظًا على حسابك، فادخل مرة أخرى بحساب جوجل."); }
+    else if(!cached){ document.getElementById("main").innerHTML = `<div class="msg">تعذّر تحميل الروابط الآن. حدّث الصفحة بعد قليل.</div>`; }
+  }).catch(() => { if(!cached) document.getElementById("main").innerHTML = `<div class="msg">تعذّر الاتصال. تأكد من الإنترنت ثم حدّث الصفحة.</div>`; });
+}
+
+document.getElementById("tracks").addEventListener("click", e => { const b = e.target.closest("[data-track]"); if(b) go(b.dataset.track); });
+document.getElementById("main").addEventListener("click", e => {
+  const b = e.target.closest("[data-sub]");
+  if(b){ state.sub[b.dataset.term] = +b.dataset.sub; drawMain(); }
+});
+document.getElementById("main").addEventListener("toggle", e => {
+  const d = e.target.closest && e.target.closest("[data-old]");
+  if(d && e.target === d) state.open[d.dataset.old] = d.open;
+  const m = e.target.closest && e.target.closest("[data-more]");
+  if(m && e.target === m) state.more[m.dataset.more] = m.open;
+}, true);
+let qt; document.getElementById("q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(() => { state.q = e.target.value; if(DATA) drawMain(); }, 200); });
+window.addEventListener("hashchange", () => { const t = fromHash(location.hash); if(DATA && t && t !== state.track) go(t); });
+document.getElementById("logout").addEventListener("click", logout);
+/* ---------- الفيديو داخل الصفحة ---------- */
+/* مشغّل يوتيوب (IFrame API) لحفظ الدقيقة؛ ولو تعذّر تحميله نرجع للتضمين العادي */
+let YTP = null, YTT = 0, YTS = 0, ytWait = [], CUR = null;
+function ytLoad(cb){
+  if(window.YT && YT.Player) return cb(true);
+  ytWait.push(cb); if(YTS === 1) return; YTS = 1;
+  const done = ok => { YTS = ok ? 2 : 0; ytWait.splice(0).forEach(f => f(ok)); };
+  window.onYouTubeIframeAPIReady = () => done(true);
+  const s = document.createElement("script"); s.src = "https://www.youtube.com/iframe_api"; s.onerror = () => done(false);
+  document.head.appendChild(s);
+  setTimeout(() => { if(YTS === 1) done(false); }, 7000);
+}
+function savePos(){
+  if(!CUR || !YTP || typeof YTP.getCurrentTime !== "function") return;
+  let t = 0, d = 0; try{ t = YTP.getCurrentTime(); d = YTP.getDuration(); }catch(e){ return; }
+  if(!(t > 0)) return;
+  setPos(CUR.id, t, d);
+  if(CUR.seen && !SEEN[CUR.seen] && d > 0 && t / d >= 0.6) setSeen(CUR.seen, true);
+}
+function plainEmbed(id, start){
+  document.getElementById("vid-f").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&autoplay=1&playsinline=1${start ? "&start=" + start : ""}" title="تسجيل المحاضرة" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+}
+function openVid(k, fromStart){
+  const v = VIDS[k]; if(!v) return;
+  stopPlayer();
+  const id = ytId(v.url), start = fromStart ? 0 : (POS[id] || 0);
+  CUR = { k, id, seen: v.seen };
+  document.getElementById("vid-t").textContent = v.title || "التسجيل";
+  document.getElementById("vid-l").href = v.url + (start ? (v.url.includes("?") ? "&" : "?") + "t=" + start : "");
+  const n = document.getElementById("vid-n");
+  n.hidden = !start; n.innerHTML = start ? `▶ أكملنا لك من <bdi>${mmss(start)}</bdi> <button type="button" data-restart="${k}">ابدأ من الأول</button>` : "";
+  document.getElementById("vid-f").innerHTML = "";
+  document.getElementById("vid-modal").hidden = false;
+  store.set("wahy_y2b3_last", JSON.stringify({ url: v.url, title: v.title, id: v.seen, at: Date.now() }));
+  ytLoad(ok => {
+    if(!CUR || CUR.k !== k) return;
+    if(!ok){ plainEmbed(id, start); if(v.seen && !SEEN[v.seen]) setSeen(v.seen, true); return; }
+    document.getElementById("vid-f").innerHTML = '<div id="vid-p"></div>';
+    try{
+      YTP = new YT.Player("vid-p", { host: "https://www.youtube-nocookie.com", videoId: id,
+        playerVars: { rel: 0, modestbranding: 1, autoplay: 1, playsinline: 1, start },
+        events: { onStateChange: e => { if(e.data === 0 && CUR){ setPos(CUR.id, 0); if(CUR.seen && !SEEN[CUR.seen]) setSeen(CUR.seen, true); } else if(e.data === 2) savePos(); } } });
+      YTT = setInterval(savePos, 5000);
+    }catch(e){ plainEmbed(id, start); if(v.seen && !SEEN[v.seen]) setSeen(v.seen, true); }
+  });
+}
+function stopPlayer(){
+  savePos(); clearInterval(YTT); YTT = 0;
+  if(YTP){ try{ YTP.destroy(); }catch(e){} YTP = null; }
+  CUR = null;
+}
+function closeVid(){ const m = document.getElementById("vid-modal"); if(m.hidden) return; stopPlayer(); m.hidden = true; document.getElementById("vid-f").innerHTML = ""; if(DATA) drawMain(); }
+document.addEventListener("visibilitychange", () => { if(document.hidden) savePos(); });
+window.addEventListener("pagehide", savePos);
+
+/* ---------- تقييم المحاضرة ---------- */
+const RQ = [["overall","التقييم العام للمحاضرة"],["content","وضوح المحتوى وتنظيمه"],["delivery","أسلوب المحاضر في العرض"],["outcomes","إلى أي حد استفدت من المحاضرة؟"],["tech","جودة الصوت والبث / التسجيل"]];
+const RO = [["org","تنظيم المحاضرة (الالتزام بالموعد وسهولة الدخول)"],["links","وصول رابط الحضور والتنبيهات في وقتها"],["sa","متابعة شئون الطلاب والرد على استفساراتك"]];
+const RT = [["benefit","أبرز ما استفدته من المحاضرة"],["improve","ما الذي كان يمكن تحسينه؟"],["wish","موضوع تتمنى التوسع فيه لاحقًا"],["question","سؤال أو استفسار للمحاضر","اكتب «لا يوجد» إن لم يكن لديك سؤال"]];
+const RT2 = [["orgnote","ملاحظاتك على التنظيم ومتابعة شئون الطلاب","اكتب «لا يوجد» إن لم تكن لديك ملاحظات"]];
+const RA = ["حضرت البث المباشر","شاهدت التسجيل","حضرت جزءًا وأكملت من التسجيل"];
+let RID = "";
+const arNum = n => String(n).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
+function rPills(name, lo, hi){ let h = '<div class="rpills">'; for(let i = lo; i <= hi; i++) h += `<label><input type="radio" name="${name}" value="${i}"><span>${arNum(i)}</span></label>`; return h + "</div>"; }
+function openRate(id, title){
+  RID = id;
+  document.getElementById("rate-s").textContent = title;
+  const sc = q => `<fieldset data-q="${q[0]}"><legend>${q[1]}</legend>${rPills(q[0], 1, 5)}<div class="rends"><span>ضعيف</span><span>ممتاز</span></div></fieldset>`;
+  const tx = t => `<label class="rtxt" data-q="${t[0]}"><span>${t[1]}</span><textarea name="${t[0]}" rows="2" maxlength="600"${t[2] ? ` placeholder="${t[2]}"` : ""}></textarea></label>`;
+  let h = '<p class="rnote">جميع الأسئلة مطلوبة، ولا يستغرق التقييم أكثر من دقيقتين.</p><h4 class="rsec">أولًا: تقييم المحاضرة</h4>';
+  h += `<fieldset data-q="attended"><legend>كيف تابعت المحاضرة؟</legend><div class="rchips">${RA.map(a => `<label><input type="radio" name="attended" value="${esc(a)}"><span>${esc(a)}</span></label>`).join("")}</div></fieldset>`;
+  h += RQ.map(sc).join("");
+  h += `<fieldset data-q="nps"><legend>ما مدى ترشيحك لهذه المحاضرة لزميل؟</legend>${rPills("nps", 0, 10)}<div class="rends"><span>لن أرشحها</span><span>بالتأكيد</span></div></fieldset>`;
+  h += RT.map(tx).join("");
+  h += '<h4 class="rsec">ثانيًا: التنظيم ومتابعة شئون الطلاب</h4>' + RO.map(sc).join("") + RT2.map(tx).join("");
+  h += '<button type="submit" class="rsend">إرسال التقييم</button>';
+  const f = document.getElementById("rate-f"); f.innerHTML = h;
+  const m = document.getElementById("rate-msg"); m.className = "mmsg"; m.textContent = "";
+  document.getElementById("rate-modal").hidden = false; f.parentNode.scrollTop = 0;
+}
+function closeRate(){ document.getElementById("rate-modal").hidden = true; }
+function sendRate(e){
+  e.preventDefault();
+  const f = e.target, m = document.getElementById("rate-msg"), ses = store.get(KEY.ses);
+  const o = { action:"rate", session: ses, lecture: RID }; new FormData(f).forEach((v, k) => { o[k] = v; });
+  const need = ["attended", ...RQ.map(q => q[0]), "nps", ...RT.map(t => t[0]), ...RO.map(q => q[0]), ...RT2.map(t => t[0])];
+  f.querySelectorAll(".rmiss").forEach(x => x.classList.remove("rmiss"));
+  const miss = need.filter(k => !String(o[k] || "").trim());
+  if(miss.length){
+    miss.forEach(k => { const el = f.querySelector(`[data-q="${k}"]`); if(el) el.classList.add("rmiss"); });
+    const first = f.querySelector(`[data-q="${miss[0]}"]`); if(first) first.scrollIntoView({ behavior:"smooth", block:"center" });
+    m.className = "mmsg bad"; m.textContent = "من فضلك أجب عن كل الأسئلة (المظلّلة بالأحمر)."; return;
+  }
+  const b = f.querySelector(".rsend"); b.disabled = true; m.className = "mmsg"; m.textContent = "جارٍ الإرسال…";
+  fetch(CONFIG.verifyUrl, { method:"POST", body: new URLSearchParams(o) }).then(r => r.json()).then(d => {
+    b.disabled = false;
+    if(d && d.ok){ EXTRA.rated = d.rated || EXTRA.rated.concat(RID); m.className = "mmsg good"; m.textContent = "جزاك الله خيرًا، وصل تقييمك ✓"; setTimeout(() => { closeRate(); drawMain(); }, 1200); }
+    else if(d && d.reason === "missing"){ m.className = "mmsg bad"; m.textContent = "من فضلك أجب عن كل الأسئلة."; }
+    else if(d && d.reason === "expired"){ m.className = "mmsg bad"; m.textContent = "انتهت جلستك، ادخل مرة أخرى بحساب جوجل."; setTimeout(() => { closeRate(); logout(); }, 1500); }
+    else { m.className = "mmsg bad"; m.textContent = "تعذّر الإرسال الآن، حاول بعد قليل."; }
+  }).catch(() => { b.disabled = false; m.className = "mmsg bad"; m.textContent = "تعذّر الاتصال، تأكد من الإنترنت وحاول مرة أخرى."; });
+}
+
+document.addEventListener("click", e => {
+  const rs = e.target.closest("[data-restart]"); if(rs){ e.preventDefault(); const k = rs.dataset.restart; const v = VIDS[k]; stopPlayer(); if(v) setPos(ytId(v.url), 0); openVid(k, true); return; }
+  const v = e.target.closest("[data-vid]"); if(v){ e.preventDefault(); openVid(v.dataset.vid); return; }
+  const tl = e.target.closest("[data-tglink]"); if(tl){ e.preventDefault(); tgLink(tl); return; }
+  const tk = e.target.closest("[data-task]"); if(tk){ e.preventDefault(); openTask(tk.dataset.task); return; }
+  const dn = e.target.closest("[data-done]"); if(dn){ e.preventDefault(); setSeen(dn.dataset.done, !SEEN[dn.dataset.done]); closeTask(); drawMain(); return; }
+  const jp = e.target.closest("[data-jump]"); if(jp){ e.preventDefault(); const sel = { "w-quiz": '.nextstep .ns-row[data-kind="q"]', "w-task": '.nextstep .ns-row[data-kind="t"]', "w-rec": "#w-due .due.rec", "w-term": "#w-term" }[jp.dataset.jump]; const el = (sel && document.querySelector(sel)) || document.getElementById("w-due"); if(el){ el.scrollIntoView({ behavior:"smooth", block:"start" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1400); } return; }
+  const ic = e.target.closest("[data-ics]"); if(ic){ e.preventDefault(); icsFile(); ic.textContent = "✓ افتح الملف لإضافته لتقويمك"; return; }
+  const r = e.target.closest("[data-rate]"); if(r){ e.preventDefault(); openRate(r.dataset.rate, r.dataset.rt); return; }
+  const s = e.target.closest("[data-seen]"); if(s){ setSeen(s.dataset.seen, !SEEN[s.dataset.seen]); drawMain(); return; }
+  const o = e.target.closest("[data-open]"); if(o){ closeTask(); go(o.dataset.open); if(o.dataset.k) { state.sub[TERM_ORDER[0].id] = +o.dataset.k; drawMain(); } window.scrollTo({ top: 0, behavior:"smooth" }); return; }
+  const g = e.target.closest("[data-goto]"); if(g){ state.sub[g.dataset.term] = +g.dataset.goto; drawMain(); const t = document.querySelector(".tabs"); if(t) t.scrollIntoView({ behavior:"smooth", block:"start" }); return; }
+});
+document.getElementById("vid-x").addEventListener("click", closeVid);
+document.getElementById("vid-modal").addEventListener("click", e => { if(e.target.id === "vid-modal") closeVid(); });
+document.getElementById("rate-x").addEventListener("click", closeRate);
+document.getElementById("task-x").addEventListener("click", closeTask);
+function openTour(){ document.getElementById("tour-modal").hidden = false; }
+function closeTour(){ document.getElementById("tour-modal").hidden = true; store.set("wahy_y2b3_tour", "1"); }
+document.getElementById("tour-x").addEventListener("click", closeTour);
+document.getElementById("tour-ok").addEventListener("click", closeTour);
+document.getElementById("tour-open").addEventListener("click", openTour);
+document.getElementById("tour-modal").addEventListener("click", e => { if(e.target.id === "tour-modal") closeTour(); });
+document.getElementById("task-modal").addEventListener("click", e => { if(e.target.id === "task-modal") closeTask(); });
+document.getElementById("rate-modal").addEventListener("click", e => { if(e.target.id === "rate-modal") closeRate(); });
+document.getElementById("rate-f").addEventListener("submit", sendRate);
+document.getElementById("rate-f").addEventListener("input", e => { const q = e.target.closest && e.target.closest("[data-q]"); if(q) q.classList.remove("rmiss"); });
+document.addEventListener("keydown", e => { if(e.key === "Escape"){ closeVid(); closeRate(); closeTask(); if(!document.getElementById("tour-modal").hidden) closeTour(); } });
+setInterval(tickNext, 30000);
+
+document.getElementById("g-copy").addEventListener("click", function(){
+  const u = location.href.split("#")[0], b = this;
+  (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(() => { b.textContent = "تم النسخ ✓"; }, () => { b.textContent = u; });
+});
+boot();
+</script>
+</body>
+</html>
